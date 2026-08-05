@@ -1,0 +1,15 @@
+Project Aurora is a personal weather station built from a Raspberry Pi
+and a set of outdoor sensors. It logs temperature, humidity, and wind
+speed every five minutes to a local database. The project started in
+March 2024 as a way to learn embedded electronics.
+
+The garden at the back of the house has three raised beds. The first
+bed grows tomatoes and basil together, since basil is said to improve
+tomato flavor when planted nearby. The second bed is dedicated entirely
+to root vegetables like carrots and beets. The third bed rotates
+whatever seeds are left over from the season.
+
+Recipe notes: the best pizza dough recipe found so far uses 00 flour,
+a 48-hour cold ferment in the refrigerator, and a very small amount of
+yeast, only half a teaspoon per batch. Baking at the highest oven
+setting, with a preheated steel, gives the best crust.

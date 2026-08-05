@@ -1,0 +1,32 @@
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    restart: unless-stopped
+    command: ["postgres", "-c", "shared_preload_libraries=pg_stat_statements"]
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-ai_learning}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgvector_data:/var/lib/postgresql/data
+
+  graph_db:
+    image: ghcr.io/evokoa/pggraph:1.0.0
+    restart: unless-stopped
+    environment:
+      # pggraph's own init scripts (pg_cron scheduling in particular) are
+      # hardcoded to the database name "graph", not configurable like the
+      # pgvector service above, so POSTGRES_DB is fixed, not overridable.
+      POSTGRES_DB: graph
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "5434:5432"
+    volumes:
+      - pggraph_data:/var/lib/postgresql/data
+
+volumes:
+  pgvector_data:
+  pggraph_data:
