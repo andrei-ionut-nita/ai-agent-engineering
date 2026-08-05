@@ -8,7 +8,7 @@ resolution-markers = [
 ]
 
 [[package]]
-name = "ai-learning"
+name = "ai-agent-engineering"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

@@ -20,7 +20,7 @@ under an `mcpServers` key:
       "command": "uv",
       "args": [
         "--directory",
-        "/ABSOLUTE/PATH/TO/ai_learning",
+        "/ABSOLUTE/PATH/TO/ai-agent-engineering",
         "run",
         "python",
         "lessons/mcp/01_beginner/10_beginner_checkpoint_project/server.py"

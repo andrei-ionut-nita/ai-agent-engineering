@@ -1,4 +1,4 @@
-# ai_learning
+# ai-agent-engineering
 
 [![Python 3.14+](https://img.shields.io/badge/python-3.14%2B-blue)](.python-version)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)

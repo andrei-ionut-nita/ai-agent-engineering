@@ -1,5 +1,5 @@
 [project]
-name = "ai-learning"
+name = "ai-agent-engineering"
 version = "0.1.0"
 description = "A hands-on LangChain, LangGraph, LangSmith, MCP, pgvector, pggraph, and Pydantic AI course, built as small, linear lessons"
 readme = "README.md"
