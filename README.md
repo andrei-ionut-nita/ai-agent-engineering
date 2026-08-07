@@ -4,15 +4,15 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![uv](https://img.shields.io/badge/managed%20with-uv-purple)](https://docs.astral.sh/uv/)
 
-A hands-on LangChain, LangGraph, LangSmith, MCP, pgvector, and Pydantic
-AI course, built as small, linear lessons, Beginner through Advanced.
-Each lesson is one focused concept: a short `README.md` to read, then a
-`lesson.py` to run. No Python experience required going in, comfort in
-any programming language is enough, Python's own syntax and idioms are
-taught inline, in comments, right where they first show up in each
-lesson.
+A hands-on LangChain, LangGraph, LangSmith, MCP, pgvector, pggraph,
+Pydantic AI, Ollama, Playwright, and Redis course, built as small,
+linear lessons, Beginner through Advanced. Each lesson is one focused
+concept: a short `README.md` to read, then a `lesson.py` to run. No
+Python experience required going in, comfort in any programming
+language is enough, Python's own syntax and idioms are taught inline,
+in comments, right where they first show up in each lesson.
 
-Seven courses, meant to be done in order:
+Ten courses, meant to be done in order:
 
 - **[lessons/langchain](lessons/langchain/)** (35 lessons): prompts,
   chains, tools, agents, RAG.
@@ -36,6 +36,16 @@ Seven courses, meant to be done in order:
   of strings, tools, dependency injection, multi-agent delegation,
   evals, and MCP, the same ideas as the other courses through a
   different, more strict lens.
+- **[lessons/ollama](lessons/ollama/)** (24 lessons): running
+  open-source LLMs locally, no API key or per-token cost, structured
+  output and tool calling on local models, and a fully offline RAG
+  agent.
+- **[lessons/playwright](lessons/playwright/)** (24 lessons): browser
+  automation as an agent tool, navigating and reading real pages,
+  filling in forms, and a capstone web research agent.
+- **[lessons/redis](lessons/redis/)** (24 lessons): fast, ephemeral
+  agent state, session memory, response caching, rate limiting,
+  pub/sub streaming, and vector search.
 
 ## Quick start
 
@@ -70,11 +80,16 @@ works. If you already have them, skip to [Setup](#setup).
   (see [docs.astral.sh/uv](https://docs.astral.sh/uv/getting-started/installation/)
   for other platforms, including Windows). After installing, close and
   reopen your terminal, then confirm it worked with `uv --version`.
-- **Docker** (needed only for the pgvector and pggraph courses): runs
-  Postgres in an isolated container instead of you installing Postgres
-  directly on your machine. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- **Docker** (needed only for the pgvector, pggraph, and redis
+  courses): runs Postgres and Redis in isolated containers instead of
+  you installing them directly on your machine. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
   (Mac/Windows) or `docker.io`/`docker-ce` via your package manager
   (Linux), then confirm it worked with `docker --version`.
+- **Ollama** (needed only for the ollama course): runs open-source
+  LLMs locally. Install from [ollama.com/download](https://ollama.com/download),
+  then confirm it worked with `ollama --version`. See
+  [lessons/ollama/README.md](lessons/ollama/README.md) for pulling
+  your first model.
 
 If you're new to the terminal: every code block in this repo's READMEs
 that starts with `$` or a bare command like `uv run ...` is meant to be
@@ -142,6 +157,19 @@ pre-installed, on `localhost:5434`. This reads `PGGRAPH_DSN` from
 above (pggraph needs its own database, literally named `graph`), the
 two run side by side and don't interfere with each other.
 
+For the redis course, the same `docker compose up -d` also starts a
+`redis-stack-server` container on `localhost:6379`. This reads
+`REDIS_DSN` from `.env` (see `.env.example`). The "stack" image, not
+plain `redis`, is used because the course's advanced lessons need the
+`RedisJSON` and `RediSearch` modules it ships with.
+
+For the playwright course, `uv sync` installs the Python package, but
+the browser binaries themselves are a separate one-time download:
+
+```bash
+uv run playwright install chromium
+```
+
 Run any lesson from the project root, for example:
 
 ```bash
@@ -173,6 +201,18 @@ uv run python lessons/langchain/01_beginner/01_first_call/lesson.py
   or `5434` (pggraph). Stop that other process, or change the port
   mapping in `docker-compose.yml` and the matching `POSTGRES_DSN` /
   `PGGRAPH_DSN` in `.env` to match.
+- **`redis.exceptions.AuthenticationError` or `ConnectionError`
+  (redis course)**: Redis isn't running, or `REDIS_DSN` doesn't match
+  the password set in `docker-compose.yml`. Run `docker compose up -d`
+  and confirm `docker ps` shows the `redis` service healthy.
+- **`ollama: command not found` or connection refused on
+  `localhost:11434` (ollama course)**: Ollama isn't installed or its
+  background service isn't running. Reinstall from
+  [ollama.com/download](https://ollama.com/download); on Linux you may
+  need to start it manually with `ollama serve` in a separate terminal.
+- **`Executable doesn't exist` (playwright course)**: browser binaries
+  haven't been downloaded yet. Run `uv run playwright install
+  chromium` from the project root.
 - **`FATAL: database "graph" does not exist` (pggraph course)**: the
   pggraph image's own startup scripts require its database to be named
   literally `graph`, don't change `POSTGRES_DB` for the `graph_db`

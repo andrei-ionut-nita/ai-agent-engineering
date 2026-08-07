@@ -1,7 +1,7 @@
 [project]
 name = "ai-agent-engineering"
 version = "0.1.0"
-description = "A hands-on LangChain, LangGraph, LangSmith, MCP, pgvector, pggraph, and Pydantic AI course, built as small, linear lessons"
+description = "A hands-on LangChain, LangGraph, LangSmith, MCP, pgvector, pggraph, Pydantic AI, Ollama, Playwright, and Redis course, built as small, linear lessons"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
@@ -13,6 +13,7 @@ dependencies = [
     "langchain-postgres>=0.0.15",
     "langchain-text-splitters>=1.1.2",
     "langgraph>=1.2.10",
+    "langgraph-checkpoint-redis>=0.1.1",
     "langgraph-checkpoint-sqlite>=3.1.0",
     "langsmith>=0.3.0",
     "mcp<2.0.0",
@@ -23,4 +24,8 @@ dependencies = [
     "psycopg-pool>=3.2.0",
     "python-dotenv>=1.2.2",
     "pydantic-ai>=2.22.0",
+    "ollama>=0.6.0",
+    "playwright>=1.49.0",
+    "redis>=5.2.0",
+    "langchain-ollama>=1.1.0",
 ]
