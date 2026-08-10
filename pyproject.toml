@@ -1,7 +1,7 @@
 [project]
 name = "ai-agent-engineering"
 version = "0.1.0"
-description = "A hands-on LangChain, LangGraph, LangSmith, MCP, pgvector, pggraph, Pydantic AI, Ollama, Playwright, and Redis course, built as small, linear lessons"
+description = "A hands-on LangChain, LangGraph, LangSmith, MCP, LlamaIndex, LiteParse, MarkItDown, Docling, pgvector, pggraph, Pydantic AI, Ollama, Playwright, and Redis course, built as small, linear lessons"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
@@ -28,4 +28,10 @@ dependencies = [
     "playwright>=1.49.0",
     "redis>=5.2.0",
     "langchain-ollama>=1.1.0",
+    "llama-index>=0.14.23",
+    "llama-index-llms-google-genai>=0.9.6",
+    "llama-index-embeddings-google-genai>=0.5.1",
+    "liteparse>=2.11.1",
+    "markitdown[all]>=0.1.5",
+    "docling>=2.118.0",
 ]

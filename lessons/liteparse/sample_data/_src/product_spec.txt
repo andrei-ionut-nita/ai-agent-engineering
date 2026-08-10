@@ -1,0 +1,22 @@
+Product Specification: Aurora Desk Lamp Mk II
+
+Model: AUR-DL-200
+Category: Home Office Lighting
+Status: In Production
+
+Key Specifications:
+Power Source: USB-C, 5V/2A
+Brightness Levels: 5, from 200 to 1200 lumens
+Color Temperature: 2700K to 6500K, adjustable
+Weight: 680 grams
+Base Diameter: 15 centimeters
+Arm Reach: 45 centimeters extended
+Warranty: 2 years, parts and labor
+Certifications: CE, FCC, RoHS
+
+Description:
+
+The Aurora Desk Lamp Mk II is a fully adjustable LED desk lamp
+designed for long reading and work sessions. Its aluminum arm holds
+position at any angle, and the touch-sensitive base remembers the
+last brightness and color temperature setting between uses.

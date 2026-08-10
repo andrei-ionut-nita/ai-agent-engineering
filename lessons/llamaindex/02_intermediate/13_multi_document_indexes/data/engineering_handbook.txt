@@ -1,0 +1,19 @@
+Nimbus Robotics: Engineering Handbook (excerpt)
+
+Code review: every pull request needs at least one approval before
+merging, two approvals for changes touching the robot's motion-control
+firmware. Reviews should focus on correctness and safety first, style
+second, since the linter already enforces formatting.
+
+On-call rotation: the robotics platform team runs a weekly on-call
+rotation covering the fleet dashboard and the robots' remote update
+service. On-call engineers carry a pager and are expected to acknowledge
+a page within 15 minutes during business hours, 30 minutes overnight.
+
+Deploys: firmware updates to robots in active warehouses only go out on
+Tuesdays and Wednesdays, never on a Friday, and always to a single
+warehouse first as a canary before a wider rollout.
+
+Testing: any change to the navigation stack requires a passing run in
+the physical test warehouse at the Cluj office, not just simulation,
+before it can be approved for firmware release.

@@ -1,0 +1,6 @@
+Release Notes: TrailLight App v1.3
+
+- Added offline mode so brightness settings sync once reconnected
+- Fixed a bug where battery percentage rounded incorrectly on Android
+- Improved pairing time with the lantern's Bluetooth module
+- Minor translation fixes for the Spanish and French locales

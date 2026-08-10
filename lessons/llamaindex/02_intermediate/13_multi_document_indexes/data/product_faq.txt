@@ -1,0 +1,22 @@
+Nimbus Robotics: Product FAQ (Cobalt-1 Warehouse Robot)
+
+What is the Cobalt-1? The Cobalt-1 is Nimbus Robotics' autonomous
+warehouse picking robot. It navigates aisles using LIDAR and a
+downward-facing camera, and can carry loads up to 25 kilograms on its
+top shelf.
+
+How long does the battery last? A fully charged Cobalt-1 runs for
+approximately 8 hours of continuous picking work, and recharges to 80%
+in 45 minutes on its docking station.
+
+Does it need special flooring? No, the Cobalt-1 works on any flat
+concrete or epoxy warehouse floor. It does require aisle widths of at
+least 1.2 meters to turn safely.
+
+What happens if it loses connectivity? The Cobalt-1 stops in place and
+enters a safe-hold state if it loses network connectivity for more than
+10 seconds, resuming its task automatically once reconnected.
+
+How many units can one operator supervise? A single operator using the
+Nimbus fleet dashboard can supervise up to 12 Cobalt-1 units running
+simultaneously in one warehouse.

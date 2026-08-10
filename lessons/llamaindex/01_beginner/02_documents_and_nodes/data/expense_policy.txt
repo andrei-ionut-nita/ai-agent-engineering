@@ -1,0 +1,21 @@
+Nimbus Robotics: Expense Reimbursement Policy
+
+Business expenses under 100 EUR can be submitted directly through the
+finance portal with a photo of the receipt, and are typically
+reimbursed within 5 business days. Expenses over 100 EUR need
+pre-approval from your manager before you spend the money, not after.
+
+Travel booked for client visits or conferences should go through the
+company travel portal so it's billed directly to Nimbus Robotics rather
+than reimbursed after the fact. Meals during approved business travel
+are reimbursed up to 60 EUR per day without requiring itemized
+receipts, only a total.
+
+Software subscriptions and small hardware purchases under 200 EUR
+needed for a specific project can be expensed directly by the
+engineering team lead without further approval, provided they're
+logged in the team's tooling spreadsheet for budget tracking.
+
+Personal cell phone bills are not reimbursed. Employees whose role
+requires being reachable outside office hours instead receive a fixed
+30 EUR monthly stipend added to payroll.

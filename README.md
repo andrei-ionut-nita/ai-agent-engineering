@@ -4,15 +4,16 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![uv](https://img.shields.io/badge/managed%20with-uv-purple)](https://docs.astral.sh/uv/)
 
-A hands-on LangChain, LangGraph, LangSmith, MCP, pgvector, pggraph,
-Pydantic AI, Ollama, Playwright, and Redis course, built as small,
-linear lessons, Beginner through Advanced. Each lesson is one focused
-concept: a short `README.md` to read, then a `lesson.py` to run. No
-Python experience required going in, comfort in any programming
-language is enough, Python's own syntax and idioms are taught inline,
-in comments, right where they first show up in each lesson.
+A hands-on LangChain, LangGraph, LangSmith, MCP, LlamaIndex, LiteParse,
+MarkItDown, Docling, pgvector, pggraph, Pydantic AI, Ollama, Playwright,
+and Redis course, built as small, linear lessons, Beginner through
+Advanced. Each lesson is one focused concept: a short `README.md` to
+read, then a `lesson.py` to run. No Python experience required going
+in, comfort in any programming language is enough, Python's own syntax
+and idioms are taught inline, in comments, right where they first show
+up in each lesson.
 
-Ten courses, meant to be done in order:
+Fourteen courses, meant to be done in order:
 
 - **[lessons/langchain](lessons/langchain/)** (35 lessons): prompts,
   chains, tools, agents, RAG.
@@ -25,6 +26,20 @@ Ten courses, meant to be done in order:
 - **[lessons/mcp](lessons/mcp/)** (26 lessons): the Model Context
   Protocol, building MCP servers (tools, resources, prompts) and MCP
   clients, then wiring MCP tools into a LangChain/Gemini agent.
+- **[lessons/llamaindex](lessons/llamaindex/)** (24 lessons): the other
+  major open-source RAG/agent framework, data-centric where LangChain
+  is chain-centric, indexes, query engines, agents, and swapping tools
+  between the two frameworks.
+- **[lessons/liteparse](lessons/liteparse/)** (14 lessons): a local,
+  open-source, Rust-backed PDF parser, layout, form fields, OCR
+  fallback for scanned documents, and no API key or cloud service.
+- **[lessons/markitdown](lessons/markitdown/)** (12 lessons): Microsoft's
+  open-source "convert anything to Markdown" library, Word, Excel,
+  PowerPoint, images, and URLs, feeding a real RAG pipeline.
+- **[lessons/docling](lessons/docling/)** (18 lessons): IBM's
+  open-source document-conversion library, layout analysis, table
+  structure recognition, OCR, chunking for RAG, and enrichment
+  pipelines for formulas, code, and pictures.
 - **[lessons/pgvector](lessons/pgvector/)** (28 lessons): Postgres as a
   vector database, indexing, hybrid search, and production-shaped RAG.
 - **[lessons/pggraph](lessons/pggraph/)** (29 lessons): Postgres as a
