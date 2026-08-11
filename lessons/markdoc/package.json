@@ -1,0 +1,12 @@
+{
+  "name": "markdoc-course",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@markdoc/markdoc": "^0.5.2",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "react": "^18.3.1"
+  }
+}

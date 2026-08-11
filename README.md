@@ -5,15 +5,16 @@
 [![uv](https://img.shields.io/badge/managed%20with-uv-purple)](https://docs.astral.sh/uv/)
 
 A hands-on LangChain, LangGraph, LangSmith, MCP, LlamaIndex, LiteParse,
-MarkItDown, Docling, pgvector, pggraph, Pydantic AI, Ollama, Playwright,
-and Redis course, built as small, linear lessons, Beginner through
-Advanced. Each lesson is one focused concept: a short `README.md` to
-read, then a `lesson.py` to run. No Python experience required going
-in, comfort in any programming language is enough, Python's own syntax
-and idioms are taught inline, in comments, right where they first show
-up in each lesson.
+MarkItDown, Docling, Markdoc, pgvector, pggraph, Pydantic AI, Ollama,
+Playwright, and Redis course, built as small, linear lessons, Beginner
+through Advanced. Each lesson is one focused concept: a short
+`README.md` to read, then a runnable file (`lesson.py`, or `lesson.js`
+for the one JavaScript course) to run. No Python experience required
+going in, comfort in any programming language is enough, Python's own
+syntax and idioms are taught inline, in comments, right where they first
+show up in each lesson.
 
-Fourteen courses, meant to be done in order:
+Fifteen courses, meant to be done in order:
 
 - **[lessons/langchain](lessons/langchain/)** (35 lessons): prompts,
   chains, tools, agents, RAG.
@@ -40,6 +41,10 @@ Fourteen courses, meant to be done in order:
   open-source document-conversion library, layout analysis, table
   structure recognition, OCR, chunking for RAG, and enrichment
   pipelines for formulas, code, and pictures.
+- **[lessons/markdoc](lessons/markdoc/)** (18 lessons): Stripe's
+  open-source Markdown toolchain for validated, schema-driven content,
+  parsing, transforming, and rendering documents with custom tags,
+  variables, and functions, the one JavaScript/Node course in this repo.
 - **[lessons/pgvector](lessons/pgvector/)** (28 lessons): Postgres as a
   vector database, indexing, hybrid search, and production-shaped RAG.
 - **[lessons/pggraph](lessons/pggraph/)** (29 lessons): Postgres as a
@@ -105,6 +110,14 @@ works. If you already have them, skip to [Setup](#setup).
   then confirm it worked with `ollama --version`. See
   [lessons/ollama/README.md](lessons/ollama/README.md) for pulling
   your first model.
+- **Node.js and npm** (needed only for the markdoc course): Markdoc is a
+  JavaScript library with no Python port, so this one course's lessons
+  are `.js` files run with `node` instead of `uv run python`. Install
+  Node from [nodejs.org](https://nodejs.org/) (the current LTS release)
+  or via your system's package manager, then confirm it worked with
+  `node --version` and `npm --version`. See
+  [lessons/markdoc/README.md](lessons/markdoc/README.md) for the
+  one-time `npm install` this course needs.
 
 If you're new to the terminal: every code block in this repo's READMEs
 that starts with `$` or a bare command like `uv run ...` is meant to be
@@ -185,6 +198,10 @@ the browser binaries themselves are a separate one-time download:
 uv run playwright install chromium
 ```
 
+For the markdoc course, dependencies aren't managed by `uv` at all, see
+[lessons/markdoc/README.md](lessons/markdoc/README.md) for its own
+one-time `npm install` step.
+
 Run any lesson from the project root, for example:
 
 ```bash
@@ -228,6 +245,22 @@ uv run python lessons/langchain/01_beginner/01_first_call/lesson.py
 - **`Executable doesn't exist` (playwright course)**: browser binaries
   haven't been downloaded yet. Run `uv run playwright install
   chromium` from the project root.
+- **`node: command not found` (markdoc course)**: Node.js isn't
+  installed, or isn't on your `PATH`. Install from
+  [nodejs.org](https://nodejs.org/), then open a new terminal and
+  confirm with `node --version`.
+- **`Cannot find package '@markdoc/markdoc'` (markdoc course)**: you
+  skipped `npm install`, or ran `node` from outside `lessons/markdoc/`.
+  Run `cd lessons/markdoc && npm install` first; lessons can then be run
+  from that folder, or from the project root with the full path,
+  `node lessons/markdoc/<tier>/<NN>_<name>/lesson.js`, `node_modules`
+  resolution still finds packages installed under
+  `lessons/markdoc/node_modules` from any subdirectory beneath it.
+- **`SyntaxError: Cannot use import statement outside a module`
+  (markdoc course)**: you're running a lesson file with an old Node
+  version, or from outside `lessons/markdoc/`, where its
+  `package.json`'s `"type": "module"` doesn't apply. Run lessons from
+  inside `lessons/markdoc/` (or a subfolder of it) with Node 20+.
 - **`FATAL: database "graph" does not exist` (pggraph course)**: the
   pggraph image's own startup scripts require its database to be named
   literally `graph`, don't change `POSTGRES_DB` for the `graph_db`
