@@ -6,15 +6,15 @@
 
 A hands-on LangChain, LangGraph, LangSmith, MCP, LlamaIndex, LiteParse,
 MarkItDown, Docling, Markdoc, pgvector, pggraph, Pydantic AI, Ollama,
-Playwright, and Redis course, built as small, linear lessons, Beginner
-through Advanced. Each lesson is one focused concept: a short
+Playwright, Redis, and Langflow course, built as small, linear lessons,
+Beginner through Advanced. Each lesson is one focused concept: a short
 `README.md` to read, then a runnable file (`lesson.py`, or `lesson.js`
 for the one JavaScript course) to run. No Python experience required
 going in, comfort in any programming language is enough, Python's own
 syntax and idioms are taught inline, in comments, right where they first
 show up in each lesson.
 
-Fifteen courses, meant to be done in order:
+Sixteen courses, meant to be done in order:
 
 - **[lessons/langchain](lessons/langchain/)** (35 lessons): prompts,
   chains, tools, agents, RAG.
@@ -66,6 +66,11 @@ Fifteen courses, meant to be done in order:
 - **[lessons/redis](lessons/redis/)** (24 lessons): fast, ephemeral
   agent state, session memory, response caching, rate limiting,
   pub/sub streaming, and vector search.
+- **[lessons/langflow](lessons/langflow/)** (22 lessons): the visual,
+  low-code layer over the same ideas `langchain`/`langgraph` teach in
+  code, building flows on a canvas, then graduating a prototype into
+  code your own custom components, the REST API, and headless
+  execution.
 
 ## Quick start
 
