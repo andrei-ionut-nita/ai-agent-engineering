@@ -25,3 +25,7 @@ lessons/markdoc/node_modules/
 lessons/markdoc/01_beginner/06_beginner_checkpoint_project/converted/
 lessons/markdoc/02_intermediate/13_intermediate_checkpoint_project/converted/
 lessons/markdoc/03_advanced/18_advanced_capstone_project/converted/
+lessons/naive_rag/02_intermediate/13_persisting_the_vector_store/store.json
+lessons/naive_rag/02_intermediate/18_intermediate_checkpoint_project/store.json
+lessons/hybrid_rag/02_intermediate/13_persisting_both_indexes/store.json
+lessons/hybrid_rag/02_intermediate/18_intermediate_checkpoint_project/store.json

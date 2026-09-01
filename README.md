@@ -6,15 +6,15 @@
 
 A hands-on LangChain, LangGraph, LangSmith, MCP, LlamaIndex, LiteParse,
 MarkItDown, Docling, Markdoc, pgvector, pggraph, Pydantic AI, Ollama,
-Playwright, Redis, and Langflow course, built as small, linear lessons,
-Beginner through Advanced. Each lesson is one focused concept: a short
-`README.md` to read, then a runnable file (`lesson.py`, or `lesson.js`
-for the one JavaScript course) to run. No Python experience required
-going in, comfort in any programming language is enough, Python's own
-syntax and idioms are taught inline, in comments, right where they first
-show up in each lesson.
+Playwright, Redis, Langflow, and Naive RAG course, built as small,
+linear lessons, Beginner through Advanced. Each lesson is one focused
+concept: a short `README.md` to read, then a runnable file (`lesson.py`,
+or `lesson.js` for the one JavaScript course) to run. No Python
+experience required going in, comfort in any programming language is
+enough, Python's own syntax and idioms are taught inline, in comments,
+right where they first show up in each lesson.
 
-Sixteen courses, meant to be done in order:
+Eighteen courses, meant to be done in order:
 
 - **[lessons/langchain](lessons/langchain/)** (35 lessons): prompts,
   chains, tools, agents, RAG.
@@ -71,6 +71,16 @@ Sixteen courses, meant to be done in order:
   code, building flows on a canvas, then graduating a prototype into
   code your own custom components, the REST API, and headless
   execution.
+- **[lessons/naive_rag](lessons/naive_rag/)** (26 lessons): the first
+  course in a series organized by RAG architecture instead of by
+  library, building Naive (Standard) RAG entirely from scratch, no
+  LangChain or LlamaIndex, direct Gemini calls and a hand-rolled vector
+  store, before graduating to `chromadb` and a small FastAPI service.
+- **[lessons/hybrid_rag](lessons/hybrid_rag/)** (26 lessons): course 2 in
+  the RAG-architecture series, combining dense (embedding) retrieval
+  with sparse (keyword) retrieval, hand-rolled TF-IDF/BM25 and
+  Reciprocal Rank Fusion first, before graduating to `rank_bm25` and
+  `chromadb`.
 
 ## Quick start
 
