@@ -81,6 +81,12 @@ Eighteen courses, meant to be done in order:
   with sparse (keyword) retrieval, hand-rolled TF-IDF/BM25 and
   Reciprocal Rank Fusion first, before graduating to `rank_bm25` and
   `chromadb`.
+- **[lessons/corrective_rag](lessons/corrective_rag/)** (26 lessons):
+  course 4 in the RAG-architecture series, grading retrieved chunks for
+  relevance before generation ever sees them, filtering or refining what
+  passes, and correcting a bad retrieval, internally at first, then via
+  a real pluggable external-search branch, before graduating to
+  `chromadb` and a small FastAPI service.
 
 ## Quick start
 
