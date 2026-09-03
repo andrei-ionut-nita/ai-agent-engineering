@@ -1,23 +1,24 @@
 # Phase A: Author the `multimodal_rag` course
 
-**Status: planned, not started.** This is a draft syllabus - present it to
-the user for approval before writing any lesson files. Mirrors
-[`../naive_rag/phase-a-authoring.md`](../naive_rag/phase-a-authoring.md)'s
+**Status: authored, not yet live-verified. All 26 lessons written and
+pass py_compile; live-API verification against a real `GOOGLE_API_KEY`
+deferred to a later session (today's key is quota-exhausted).**
+Mirrors [`../naive_rag/phase-a-authoring.md`](../naive_rag/phase-a-authoring.md)'s
 structure and conventions exactly - only the content differs.
 
 ## To-Do List
 
-- [ ] Get user approval on this syllabus before writing any files
-- [ ] Lesson 22's `ingest()`/`ask()` implements the series' shared
+- [x] Get user approval on this syllabus before writing any files
+- [x] Lesson 22's `ingest()`/`ask()` implements the series' shared
       `Strategy` protocol (`docs/RAG-SERIES-PLAN/README.md`): `ingest(docs)
       -> State` where `State` here is a mixed-modality `chroma_collection`,
       `ask(query, state, k) -> str`. Say explicitly in that lesson's
       README what lives inside `State`, so `adaptive_rag` L21 can wire
       this in without reading the full implementation.
-- [ ] Lesson 16 (minimal evaluation) references `naive_rag` L17's "Why
+- [x] Lesson 16 (minimal evaluation) references `naive_rag` L17's "Why
       this doesn't generalize (yet)" section (sample-size limits,
       tune/eval contamination) instead of re-deriving it.
-- [ ] Lesson 1 names captioning-then-embed as *one* implementation choice
+- [x] Lesson 1 names captioning-then-embed as *one* implementation choice
       for multimodal retrieval, not the only one - one sentence
       contrasting it with joint embedding spaces (CLIP-style models that
       embed images and text into the same vector space directly, no
@@ -26,38 +27,42 @@ structure and conventions exactly - only the content differs.
       course already uses, no new account/model family, and the caption
       text is directly inspectable/debuggable) - so a student doesn't
       leave thinking captioning *is* multimodal RAG.
-- [ ] Lesson 23 (FastAPI wrapper) stays a short recipe reusing
+- [x] Lesson 23 (FastAPI wrapper) stays a short recipe reusing
       `naive_rag` L24's pattern almost verbatim rather than re-teaching
       FastAPI from scratch - keep it brief and let Lesson 7-8 (cross-modal
       retrieval, generation with the original image) carry the depth this
       course is actually about.
-- [ ] Design `lessons/multimodal_rag/fixtures/` - this course is the
+- [x] Design `lessons/multimodal_rag/fixtures/` - this course is the
       first in the series that needs actual **image files**, not just
       markdown notes. Needs a small set of images (2-4) whose content is
       only discoverable visually (e.g. a diagram or photo with a detail
       not described in any text note), plus a folder of notes similar in
       spirit to `naive_rag`'s, so there's a genuine "text retrieval finds
       nothing, image retrieval does" case for Lesson 7.
-- [ ] Confirm Gemini's current image-input support in the installed
+- [x] Confirm Gemini's current image-input support in the installed
       `google-genai` SDK version (passing image bytes/`Part` objects to
       `generate_content`) before drafting Lesson 3.
-- [ ] Scaffold `lessons/multimodal_rag/` structure (tier folders, lesson
+- [x] Scaffold `lessons/multimodal_rag/` structure (tier folders, lesson
       folders, course-level `README.md`)
-- [ ] Write Beginner tier (9 lessons): sending images to Gemini,
+- [x] Write Beginner tier (9 lessons): sending images to Gemini,
       captioning, embedding captions, mixed text+image retrieval
-- [ ] Write Intermediate tier (9 lessons): multi-image documents,
+- [x] Write Intermediate tier (9 lessons): multi-image documents,
       modality metadata, persistence, cross-modal k-balance, failure
       modes, minimal eval, checkpoint
-- [ ] Write Advanced tier (8 lessons): scale limits of per-query
+- [x] Write Advanced tier (8 lessons): scale limits of per-query
       captioning, chromadb for the mixed store, modality filtering,
       refactor, service wrapper, capstone, series bridge/retrospective
       lesson
-- [ ] Add `Pillow` to `pyproject.toml` (basic image loading/resizing);
+- [x] Add `Pillow` to `pyproject.toml` (basic image loading/resizing);
       confirm no other new dependency is needed beyond `google-genai`
       (already present) and `chromadb` (already present); run `uv sync`
-- [ ] Add the `multimodal_rag` course bullet to the repo root `README.md`
+      (Pillow was already present at `pillow>=12.3.0`; `uv sync`
+      confirmed green)
+- [x] Add the `multimodal_rag` course bullet to the repo root `README.md`
 - [ ] Spot-check every lesson's `lesson.py` actually runs against a real
       `GOOGLE_API_KEY` and matches its README's "Expected output"
+      (deferred: today's `GOOGLE_API_KEY` is quota-exhausted, see status
+      line above)
 
 ## Course 6 Spec: Multimodal RAG
 

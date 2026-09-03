@@ -81,12 +81,30 @@ Eighteen courses, meant to be done in order:
   with sparse (keyword) retrieval, hand-rolled TF-IDF/BM25 and
   Reciprocal Rank Fusion first, before graduating to `rank_bm25` and
   `chromadb`.
+- **[lessons/graph_rag](lessons/graph_rag/)** (26 lessons): course 3 in
+  the RAG-architecture series, extracting entities and relationships
+  into a knowledge graph and answering multi-hop questions by
+  traversing it, hand-rolled adjacency-dict extraction and traversal
+  first, before graduating to `networkx` and a `chromadb`-backed
+  graph+vector hybrid retrieval service.
 - **[lessons/corrective_rag](lessons/corrective_rag/)** (26 lessons):
   course 4 in the RAG-architecture series, grading retrieved chunks for
   relevance before generation ever sees them, filtering or refining what
   passes, and correcting a bad retrieval, internally at first, then via
   a real pluggable external-search branch, before graduating to
   `chromadb` and a small FastAPI service.
+- **[lessons/agentic_rag](lessons/agentic_rag/)** (26 lessons): course 5
+  in the RAG-architecture series, letting the model decide, per
+  question, whether to retrieve, how many times, and what else to call
+  instead, using Gemini's native function calling directly, no
+  framework, before graduating to a `chromadb`-backed tool registry and
+  a small FastAPI service.
+- **[lessons/multimodal_rag](lessons/multimodal_rag/)** (26 lessons):
+  course 6 in the RAG-architecture series, extending retrieval to
+  images as well as text by captioning images into embeddable text
+  with Gemini's native image-input support, then re-attaching the
+  original image at generation time, before graduating to `chromadb`
+  and a small FastAPI service.
 
 ## Quick start
 

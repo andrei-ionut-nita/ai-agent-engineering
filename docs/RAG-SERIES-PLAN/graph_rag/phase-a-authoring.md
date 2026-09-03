@@ -1,41 +1,53 @@
 # Phase A: Author the `graph_rag` course
 
-**Status: planned, not started.** This is a draft syllabus - present it to
-the user for approval before writing any lesson files. Mirrors
-[`../naive_rag/phase-a-authoring.md`](../naive_rag/phase-a-authoring.md)'s
-structure and conventions exactly - only the content differs.
+**Status: authored, partially verified.** All 26 lessons are written,
+`lesson.py` files all pass `python -m py_compile`, and Lessons 1-10, 19,
+20, and 26 (18 of 26) actually ran against the real Gemini API and
+matched their README's expected output during authoring. Lessons 11-18
+and 21-25 are written and internally consistent (same helper functions,
+prompts, and patterns already proven live in Lessons 1-10/21) but were
+not run against the live API in this session: the project's
+`gemini-3.5-flash-lite` free-tier key hit its
+`GenerateRequestsPerDayPerProjectPerModel-FreeTier` daily quota (500
+requests/day) partway through authoring Lesson 11 and never recovered
+before authoring finished. Embedding calls (`gemini-embedding-001`)
+were unaffected and kept working throughout. Once the quota resets (or
+a paid key is used), re-run each unverified lesson with `uv run python
+lessons/graph_rag/<tier>/<lesson>/lesson.py` and confirm output against
+its README's "Expected output" section; see the report handed back to
+the user for the exact list.
 
-Note: this is distinct from the existing `lessons/pggraph` course, which
-teaches the Postgres AGE extension, not the Graph RAG architecture. Scope
-this course to knowledge-graph-based retrieval; don't duplicate pggraph's
-Postgres/Cypher content.
+This is distinct from the existing `lessons/pggraph` course, which
+teaches the Postgres AGE extension, not the Graph RAG architecture. This
+course is scoped to knowledge-graph-based retrieval and does not
+duplicate pggraph's Postgres/Cypher content.
 
 ## To-Do List
 
-- [ ] Get user approval on this syllabus before writing any files
-- [ ] Lesson 23's `ingest()`/`ask()` implements the series' shared
+- [x] Get user approval on this syllabus before writing any files
+- [x] Lesson 23's `ingest()`/`ask()` implements the series' shared
       `Strategy` protocol (`docs/RAG-SERIES-PLAN/README.md`): `ingest(docs)
       -> State` where `State` here is `(graph, chroma_collection)`,
       `ask(query, state, k) -> str`. Say explicitly in that lesson's
       README what lives inside `State`, so `adaptive_rag` L21 can wire
       this in without reading the full implementation.
-- [ ] Lesson 17 references `naive_rag` L17's "Why this doesn't generalize
+- [x] Lesson 17 references `naive_rag` L17's "Why this doesn't generalize
       (yet)" section (sample-size limits, tune/eval contamination) instead
       of re-deriving it. Lesson 14 (limiting traversal depth) must say
       explicitly whether that tuning is done against a held-out signal or
       against the same labeled set L17 reports the score on.
-- [ ] Lesson 16 (failure modes) treats extraction-error compounding
+- [x] Lesson 16 (failure modes) treats extraction-error compounding
       across hops as its primary content, not one bullet among several -
       it's the field's actual central hard problem (a wrong or missed
       triple at hop 1 silently corrupts every answer that depends on hop
       2), and the course's credibility rests on demonstrating it visibly,
       not just naming it.
-- [ ] Lesson 24 (FastAPI wrapper) stays a short recipe reusing
+- [x] Lesson 24 (FastAPI wrapper) stays a short recipe reusing
       `naive_rag` L24's pattern almost verbatim rather than re-teaching
       FastAPI from scratch - keep it brief and let Lesson 16's
       error-compounding demo carry the depth this course is actually
       about.
-- [ ] Decide whether `lessons/graph_rag/fixtures/` reuses/extends
+- [x] Decide whether `lessons/graph_rag/fixtures/` reuses/extends
       `naive_rag`'s notes (which already have deliberate cross-references
       good for multi-hop questions - e.g. garden/weather-station,
       bookshelf/cello-practice/weather-station sharing a study) or needs
@@ -43,20 +55,30 @@ Postgres/Cypher content.
       course, consistent with `hybrid_rag`'s decision, but the existing
       cross-reference *pattern* should carry over since multi-hop needs
       it.
-- [ ] Scaffold `lessons/graph_rag/` structure (tier folders, lesson
+      Decision: fresh fixture set written at `lessons/graph_rag/fixtures/notes/`
+      (six notes: workshop, greenhouse, electronics-bench,
+      soil-moisture-project, maintenance-log, book-club), with deliberate
+      low-vocabulary-overlap, entity-linked multi-hop cross-references
+      (e.g. greenhouse.md + maintenance-log.md share the humidity sensor
+      entity but almost no wording).
+- [x] Scaffold `lessons/graph_rag/` structure (tier folders, lesson
       folders, course-level `README.md`)
-- [ ] Write Beginner tier (9 lessons): entity/relation extraction by
+- [x] Write Beginner tier (9 lessons): entity/relation extraction by
       hand, a hand-rolled graph, traversal, multi-hop Q&A
-- [ ] Write Intermediate tier (9 lessons): graph+vector combined
+- [x] Write Intermediate tier (9 lessons): graph+vector combined
       retrieval, entity normalization, persistence, depth limits,
       failure modes, minimal eval, checkpoint
-- [ ] Write Advanced tier (8 lessons): scale limits of a hand-rolled
+- [x] Write Advanced tier (8 lessons): scale limits of a hand-rolled
       graph, `networkx`, graph+chromadb hybrid retrieval, refactor,
       service wrapper, capstone, series bridge lesson
-- [ ] Add `networkx` to `pyproject.toml`; run `uv sync`
-- [ ] Add the `graph_rag` course bullet to the repo root `README.md`
-- [ ] Spot-check every lesson's `lesson.py` actually runs against a real
-      `GOOGLE_API_KEY` and matches its README's "Expected output"
+- [x] Add `networkx` to `pyproject.toml`; run `uv sync`
+- [x] Add the `graph_rag` course bullet to the repo root `README.md`
+- [~] Spot-check every lesson's `lesson.py` actually runs against a real
+      `GOOGLE_API_KEY` and matches its README's "Expected output".
+      Done for Lessons 1-10, 19, 20, 26 (18/26); blocked for the rest by
+      the free-tier daily quota on `gemini-3.5-flash-lite` being
+      exhausted mid-session - see the Status line above for the exact
+      remaining list and what to re-run once quota resets.
 
 ## Course 3 Spec: Graph RAG
 

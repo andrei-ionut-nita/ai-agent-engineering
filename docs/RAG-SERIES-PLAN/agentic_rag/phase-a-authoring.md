@@ -1,7 +1,8 @@
 # Phase A: Author the `agentic_rag` course
 
-**Status: planned, not started.** This is a draft syllabus - present it to
-the user for approval before writing any lesson files. Mirrors
+**Status: authored, not yet live-verified.** All 26 lessons written and
+pass py_compile; live-API verification against a real GOOGLE_API_KEY
+deferred to a later session (today's key is quota-exhausted). Mirrors
 [`../naive_rag/phase-a-authoring.md`](../naive_rag/phase-a-authoring.md)'s
 structure and conventions exactly - only the content differs.
 
@@ -14,48 +15,48 @@ call instead. Scope it to avoid re-teaching general agent concepts
 
 ## To-Do List
 
-- [ ] Get user approval on this syllabus before writing any files
-- [ ] Lesson 23's `tools()`/`run_agent()` implements the series' shared
+- [x] Get user approval on this syllabus before writing any files
+- [x] Lesson 23's `tools()`/`run_agent()` implements the series' shared
       `Strategy` protocol (`docs/RAG-SERIES-PLAN/README.md`) at its
       outer boundary: `ingest(docs) -> State` where `State` here is
       `(chroma_collection, tool_registry)`, `ask(query, state, k) -> str`
       wrapping `run_agent()` internally. Say explicitly in that lesson's
       README what lives inside `State`, so `adaptive_rag` L21 can wire
       this in without reading the full implementation.
-- [ ] Lesson 17 references `naive_rag` L17's "Why this doesn't generalize
+- [x] Lesson 17 references `naive_rag` L17's "Why this doesn't generalize
       (yet)" section (sample-size limits, tune/eval contamination) instead
       of re-deriving it.
-- [ ] Lesson 16 (failure modes) covers malformed or erroring tool calls
+- [x] Lesson 16 (failure modes) covers malformed or erroring tool calls
       (bad arguments, a tool that raises) as a distinct case from
       unnecessary retrieval or non-converging loops - function-calling
       APIs fail this way often enough in practice that skipping it would
       leave a real gap, not just an edge case.
-- [ ] Lesson 24 (FastAPI wrapper) stays a short recipe reusing
+- [x] Lesson 24 (FastAPI wrapper) stays a short recipe reusing
       `naive_rag` L24's pattern almost verbatim rather than re-teaching
       FastAPI from scratch - keep it brief and let Lesson 16's failure
       modes carry the depth this course is actually about.
-- [ ] Confirm `google-genai`'s function-calling / tool-use API surface
+- [x] Confirm `google-genai`'s function-calling / tool-use API surface
       (exact method names, `types.Tool`/`FunctionDeclaration` shapes) for
       the installed SDK version before drafting Lesson 3 - this is the
       one genuinely new API surface this course introduces beyond what
       `naive_rag` already used.
-- [ ] Decide on the second, non-retrieval tool used in Lessons 7-9
+- [x] Decide on the second, non-retrieval tool used in Lessons 7-9
       (e.g. a simple calculator or a date/time lookup) - pick something
       trivial enough not to need its own new dependency.
-- [ ] Scaffold `lessons/agentic_rag/` structure (tier folders, lesson
+- [x] Scaffold `lessons/agentic_rag/` structure (tier folders, lesson
       folders, course-level `README.md`)
-- [ ] Write Beginner tier (9 lessons): function-calling basics, retrieval
+- [x] Write Beginner tier (9 lessons): function-calling basics, retrieval
       as a tool, deciding whether to retrieve, multi-tool agents
-- [ ] Write Intermediate tier (9 lessons): multi-step loops, query
+- [x] Write Intermediate tier (9 lessons): multi-step loops, query
       planning/decomposition, iteration bounds, failure modes, minimal
       eval, checkpoint
-- [ ] Write Advanced tier (8 lessons): tool-registry pattern, optional
+- [x] Write Advanced tier (8 lessons): tool-registry pattern, optional
       cross-reference to Corrective RAG's grading as a tool, refactor,
       service wrapper, capstone, series bridge lesson
-- [ ] No new dependency expected (Gemini's native function calling is
+- [x] No new dependency expected (Gemini's native function calling is
       part of `google-genai`, already in `pyproject.toml`) - confirm this
       holds once lessons are drafted
-- [ ] Add the `agentic_rag` course bullet to the repo root `README.md`
+- [x] Add the `agentic_rag` course bullet to the repo root `README.md`
 - [ ] Spot-check every lesson's `lesson.py` actually runs against a real
       `GOOGLE_API_KEY` and matches its README's "Expected output"
 
