@@ -81,14 +81,15 @@ uv run python lessons/graph_rag/02_intermediate/17_minimal_evaluation_chunk_vs_g
 
 ```
 Chunk-based precision@2 (naive retrieval):
-  [MISS] '...recalibrated the sensor...' -> needed {'greenhouse.md', 'maintenance-log.md'}, got {'greenhouse.md', 'soil-moisture-project.md'}
+  [HIT ] 'Who recalibrated the sensor...' -> needed {'greenhouse.md', 'maintenance-log.md'}, got {'greenhouse.md', 'maintenance-log.md'}
+  [MISS] "What project inspired Dev's soil moisture sensor..." -> needed {'soil-moisture-project.md', 'workshop.md'}, got {'soil-moisture-project.md', 'greenhouse.md'}
   ...
-  Score: 0.20 (1/5)
+  Score: 0.40 (2/5)
 
 Graph-based precision@2 hops (traversal):
-  [HIT ] '...recalibrated the sensor...' -> needed {'greenhouse.md', 'maintenance-log.md'}, covered {'greenhouse.md', 'maintenance-log.md', ...}
+  [HIT ] 'Who recalibrated the sensor...' -> needed {'greenhouse.md', 'maintenance-log.md'}, covered {'greenhouse.md', 'maintenance-log.md', ...}
   ...
-  Score: 0.80 (4/5)
+  Score: 1.00 (5/5)
 ```
 
 Exact scores shift with extraction and embedding variance, the gap

@@ -106,15 +106,17 @@ uv run python lessons/graph_rag/02_intermediate/16_failure_modes_of_graph_retrie
 --- Demonstration 1: a wrong/missing extraction at hop 1 ---
 
 Answer (correct graph):
-Mia recalibrated the humidity sensor that Dev flagged, and pulled a multimeter around the same time.
+Based on the provided facts:
+* Who recalibrated the sensor: Mia recalibrated the humidity sensor (which Dev noticed and flagged).
+* What tool they used: the facts do not name a specific calibration tool, but do state Mia pulled a multimeter.
 
 Answer (corrupted graph, Dev's flag silently removed):
-Mia recalibrated the humidity sensor. The facts don't establish who first noticed or flagged the issue.
+Based on the provided facts, Mia recalibrated the humidity sensor. However, the facts do not mention what tool she used for the recalibration.
 
 --- Demonstration 2: traversal that stops one hop short ---
 
-depth=1: Mia recalibrated the humidity sensor. The facts don't mention what tool she used.
-depth=2: Mia recalibrated the humidity sensor, and pulled a multimeter around the same time.
+depth=1: ...there is no mention of any tool used for the recalibration, so that detail isn't supported by the facts.
+depth=2: Mia recalibrated the humidity sensor (which Dev noticed and flagged). While the facts mention that Mia... pulled a multimeter..., the specific tool used for the recalibration isn't explicitly named in the list.
 ```
 
 Exact wording varies between runs; what should hold steady is the

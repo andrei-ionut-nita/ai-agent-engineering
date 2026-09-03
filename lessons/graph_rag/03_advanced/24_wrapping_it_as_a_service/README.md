@@ -58,10 +58,10 @@ Then, in another terminal:
 
 ```
 GET /ask?q="What's stored on the garage electronics bench?"
-  {'answer': '<a grounded answer listing items on the bench>'}
+  {'answer': 'Based on the provided facts, the garage electronics bench holds a soldering station, a parts bin, a Raspberry Pi, and a multimeter.'}
 
 GET /ask?q='What is the capital of France?'
-  {'answer': "<an honest, facts-don't-support-that style answer>"}
+  {'answer': 'Based on the provided facts, there is no mention of France or its capital.'}
 ```
 
 ## Checkpoint

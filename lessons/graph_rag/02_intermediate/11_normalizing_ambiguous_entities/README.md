@@ -76,19 +76,40 @@ uv run python lessons/graph_rag/02_intermediate/11_normalizing_ambiguous_entitie
 ## Expected output
 
 ```
-Nodes before normalizing: 48
-Merging: 'garage bench' -> 'electronics bench' (similarity 0.79)
-Nodes after normalizing: 47
+Nodes before normalizing: 45
+Merging: 'electronics bench' -> 'garage bench' (similarity 0.79)
+Merging: "garage bench's top drawer" -> 'garage bench' (similarity 0.79)
+Merging: 'workshop side of the garage' -> 'garage bench' (similarity 0.76)
+Merging: 'shared electronics bench' -> 'garage bench' (similarity 0.88)
+Merging: 'tray of jumper wires' -> 'jumper wire tray' (similarity 0.94)
+Merging: 'soil moisture sensor' -> 'humidity sensor' (similarity 0.76)
+Merging: 'garage bench' -> 'back half of the garage' (similarity 0.81)
+Nodes after normalizing: 38
 
-Before merging, edges on 'electronics bench': ['holds -> multimeter', 'holds -> soldering station', ...]
-After merging, edges on 'electronics bench' also include: ['(reverse) came from -> multimeter', ...]
+Edges on 'back half of the garage' after normalizing:
+  (reverse) takes up -> woodworking workshop
+  holds -> multimeter
+  ...
 ```
 
-Exact node counts and which pair crosses the threshold can shift
-slightly with extraction variance, the underlying point doesn't:
-without this step, some of the multimeter's real connections are
-reachable only through "garage bench," invisible to any traversal that
-starts from "electronics bench" instead.
+Exact node counts, which pairs cross the threshold, and even which
+surviving name a chain of merges lands on can shift with extraction
+variance, the underlying point doesn't: without this step, some of the
+multimeter's real connections are reachable only through "garage
+bench," invisible to any traversal that starts from "electronics bench"
+instead. Because the demo prints edges for whichever name "electronics
+bench" ultimately resolves to (it can get merged into "garage bench,"
+which in turn gets merged into something else again), the code tracks
+that chain explicitly rather than hardcoding a name that may no longer
+exist in the graph after normalizing.
+
+Note that a real run can also show a threshold false positive, like
+"soil moisture sensor" merging into "humidity sensor" at 0.76, two
+genuinely different sensors that happen to embed close together. This
+isn't a bug: it's the "Try this yourself" lesson below arriving
+unprompted, real thresholds aren't perfectly clean cutoffs, and this is
+exactly the kind of borderline case worth checking by hand rather than
+trusting blindly.
 
 ## Checkpoint
 

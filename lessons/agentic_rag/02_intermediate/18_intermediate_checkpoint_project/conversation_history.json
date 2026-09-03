@@ -1,0 +1,386 @@
+[
+  {
+    "parts": [
+      {
+        "media_resolution": null,
+        "code_execution_result": null,
+        "executable_code": null,
+        "file_data": null,
+        "function_call": null,
+        "function_response": null,
+        "inline_data": null,
+        "text": "How often does the sourdough starter need feeding at room temperature?",
+        "thought": null,
+        "thought_signature": null,
+        "video_metadata": null,
+        "tool_call": null,
+        "tool_response": null,
+        "part_metadata": null,
+        "audio_transcription": null
+      }
+    ],
+    "role": "user"
+  },
+  {
+    "parts": [
+      {
+        "media_resolution": null,
+        "code_execution_result": null,
+        "executable_code": null,
+        "file_data": null,
+        "function_call": {
+          "id": "call_785066",
+          "args": {
+            "query": "sourdough starter room temperature feeding frequency"
+          },
+          "name": "search_notes",
+          "partial_args": null,
+          "will_continue": null
+        },
+        "function_response": null,
+        "inline_data": null,
+        "text": null,
+        "thought": null,
+        "thought_signature": "El4KXAERTTIPEjHg53NTkLiTJykUV4ellQFWkMPNkbIR_iiNS9XacQJa2roe6CPJGcaGUmhuGzjW87Mo8CPbpoEQjG_-GsWnrlQUY8i6fNGPL0qOdoinQtvIBH756J-p",
+        "video_metadata": null,
+        "tool_call": null,
+        "tool_response": null,
+        "part_metadata": null,
+        "audio_transcription": null
+      }
+    ],
+    "role": "model"
+  },
+  {
+    "parts": [
+      {
+        "media_resolution": null,
+        "code_execution_result": null,
+        "executable_code": null,
+        "file_data": null,
+        "function_call": null,
+        "function_response": {
+          "will_continue": null,
+          "scheduling": null,
+          "parts": null,
+          "id": null,
+          "name": "search_notes",
+          "response": {
+            "output": "[sourdough-starter.md]\n# Sourdough Starter\n\nThe starter (nicknamed \"Clarence\") lives on the kitchen counter, next\nto the aquarium, in a half-liter glass jar with a loose-fitting lid.\nIt was started from scratch in January 2024 using just flour and\nwater, no store-bought starter culture.\n\nAt room temperature, Clarence needs feeding every 12 hours, equal\nparts flour and water by weight. If it's going in the fridge for\nlonger than a few days, once a week is enough, since the cold slows\nthe yeast down. Skipping a feeding at room temperature for more than a\nday makes the starter smell sharply of acetone, a sign it's hungry,\nnot a sign it's dead.\n\nBaking day starts the night before: pull the starter, feed it, and\nwait for it to double in size (usually 4 to 6 hours) before mixing the\ndough.\n"
+          }
+        },
+        "inline_data": null,
+        "text": null,
+        "thought": null,
+        "thought_signature": null,
+        "video_metadata": null,
+        "tool_call": null,
+        "tool_response": null,
+        "part_metadata": null,
+        "audio_transcription": null
+      }
+    ],
+    "role": "user"
+  },
+  {
+    "parts": [
+      {
+        "media_resolution": null,
+        "code_execution_result": null,
+        "executable_code": null,
+        "file_data": null,
+        "function_call": null,
+        "function_response": null,
+        "inline_data": null,
+        "text": "At room temperature, the sourdough starter needs to be fed every 12 hours [sourdough-starter.md].",
+        "thought": null,
+        "thought_signature": "El4KXAERTTIPnJ3nrQnjpGArHgckPscOShyiPp8-W0DoUmaaWn5aj8_c_NveKDv5OkoBNNEerJutPpFXROxA6FufCrDazTrS31pnp-NlcD01py-KModfh4w0mcn24sq4",
+        "video_metadata": null,
+        "tool_call": null,
+        "tool_response": null,
+        "part_metadata": null,
+        "audio_transcription": null
+      }
+    ],
+    "role": "model"
+  },
+  {
+    "parts": [
+      {
+        "media_resolution": null,
+        "code_execution_result": null,
+        "executable_code": null,
+        "file_data": null,
+        "function_call": null,
+        "function_response": null,
+        "inline_data": null,
+        "text": "What's the chemical symbol for gold?",
+        "thought": null,
+        "thought_signature": null,
+        "video_metadata": null,
+        "tool_call": null,
+        "tool_response": null,
+        "part_metadata": null,
+        "audio_transcription": null
+      }
+    ],
+    "role": "user"
+  },
+  {
+    "parts": [
+      {
+        "media_resolution": null,
+        "code_execution_result": null,
+        "executable_code": null,
+        "file_data": null,
+        "function_call": null,
+        "function_response": null,
+        "inline_data": null,
+        "text": "The chemical symbol for gold is **Au**.",
+        "thought": null,
+        "thought_signature": "El4KXAERTTIPVaEHNYDUfqWy0q3t4GoeqUi1kqgpnWqN_Y-Q5xOs3ubzJ8-TEJTqYdbpvbrRSAypnvUTGvCl_u6G73Dwu18HXpLmkqkdgEEKSriA8lzxgDebZdUazmgy",
+        "video_metadata": null,
+        "tool_call": null,
+        "tool_response": null,
+        "part_metadata": null,
+        "audio_transcription": null
+      }
+    ],
+    "role": "model"
+  },
+  {
+    "parts": [
+      {
+        "media_resolution": null,
+        "code_execution_result": null,
+        "executable_code": null,
+        "file_data": null,
+        "function_call": null,
+        "function_response": null,
+        "inline_data": null,
+        "text": "What about it makes it smell like acetone if you skip a feeding?",
+        "thought": null,
+        "thought_signature": null,
+        "video_metadata": null,
+        "tool_call": null,
+        "tool_response": null,
+        "part_metadata": null,
+        "audio_transcription": null
+      }
+    ],
+    "role": "user"
+  },
+  {
+    "parts": [
+      {
+        "media_resolution": null,
+        "code_execution_result": null,
+        "executable_code": null,
+        "file_data": null,
+        "function_call": {
+          "id": "call_749612",
+          "args": {
+            "query": "acetone smell hungry starter"
+          },
+          "name": "search_notes",
+          "partial_args": null,
+          "will_continue": null
+        },
+        "function_response": null,
+        "inline_data": null,
+        "text": null,
+        "thought": null,
+        "thought_signature": "El4KXAERTTIPfW-aSyUlkrBaClCfgu8xJgHa3DllNuYT0yTev_eTOe7wyHCWk-kldHrxhkUMrY_sziN41Nv6DD8xnXNFKLJMg2I8BOVc7Ro6pk-L3rnZ4LduXzwnD3re",
+        "video_metadata": null,
+        "tool_call": null,
+        "tool_response": null,
+        "part_metadata": null,
+        "audio_transcription": null
+      }
+    ],
+    "role": "model"
+  },
+  {
+    "parts": [
+      {
+        "media_resolution": null,
+        "code_execution_result": null,
+        "executable_code": null,
+        "file_data": null,
+        "function_call": null,
+        "function_response": {
+          "will_continue": null,
+          "scheduling": null,
+          "parts": null,
+          "id": null,
+          "name": "search_notes",
+          "response": {
+            "output": "[sourdough-starter.md]\n# Sourdough Starter\n\nThe starter (nicknamed \"Clarence\") lives on the kitchen counter, next\nto the aquarium, in a half-liter glass jar with a loose-fitting lid.\nIt was started from scratch in January 2024 using just flour and\nwater, no store-bought starter culture.\n\nAt room temperature, Clarence needs feeding every 12 hours, equal\nparts flour and water by weight. If it's going in the fridge for\nlonger than a few days, once a week is enough, since the cold slows\nthe yeast down. Skipping a feeding at room temperature for more than a\nday makes the starter smell sharply of acetone, a sign it's hungry,\nnot a sign it's dead.\n\nBaking day starts the night before: pull the starter, feed it, and\nwait for it to double in size (usually 4 to 6 hours) before mixing the\ndough.\n"
+          }
+        },
+        "inline_data": null,
+        "text": null,
+        "thought": null,
+        "thought_signature": null,
+        "video_metadata": null,
+        "tool_call": null,
+        "tool_response": null,
+        "part_metadata": null,
+        "audio_transcription": null
+      }
+    ],
+    "role": "user"
+  },
+  {
+    "parts": [
+      {
+        "media_resolution": null,
+        "code_execution_result": null,
+        "executable_code": null,
+        "file_data": null,
+        "function_call": null,
+        "function_response": null,
+        "inline_data": null,
+        "text": "The personal notes mention that skipping a feeding at room temperature for more than a day causes the starter to smell sharply of acetone, which is simply a sign that the starter is hungry [sourdough-starter.md]. \n\n*(Note: While my notes don't go into the deeper microbiology of why this happens, biologically, when yeast and bacteria in a sourdough culture run out of their preferred flour sugars, they shift their metabolic processes\u2014often producing secondary byproducts like ethyl acetate or other volatile organic compounds as they consume their own energy reserves or undergo prolonged fermentation, resulting in that solvent-like smell.)*",
+        "thought": null,
+        "thought_signature": "El4KXAERTTIP47KLGPTfBpC-XF6o_UtzfMgOyCX12sems5Shu-40UaeV4YtZf6NqbDQOwxiYC2oAJ2U8v1wFkhwcoR61cY8qonjH2nPe0gjeiu1eo-01epYmzF0zkPdP",
+        "video_metadata": null,
+        "tool_call": null,
+        "tool_response": null,
+        "part_metadata": null,
+        "audio_transcription": null
+      }
+    ],
+    "role": "model"
+  },
+  {
+    "parts": [
+      {
+        "media_resolution": null,
+        "code_execution_result": null,
+        "executable_code": null,
+        "file_data": null,
+        "function_call": null,
+        "function_response": null,
+        "inline_data": null,
+        "text": "Where's the pedalboard, and how often should its cables get checked?",
+        "thought": null,
+        "thought_signature": null,
+        "video_metadata": null,
+        "tool_call": null,
+        "tool_response": null,
+        "part_metadata": null,
+        "audio_transcription": null
+      }
+    ],
+    "role": "user"
+  },
+  {
+    "parts": [
+      {
+        "media_resolution": null,
+        "code_execution_result": null,
+        "executable_code": null,
+        "file_data": null,
+        "function_call": {
+          "id": "call_472906",
+          "args": {
+            "query": "pedalboard location"
+          },
+          "name": "search_notes",
+          "partial_args": null,
+          "will_continue": null
+        },
+        "function_response": null,
+        "inline_data": null,
+        "text": null,
+        "thought": null,
+        "thought_signature": "El4KXAERTTIPqq0fh88rfDqD2t2A-DekeLZVxCu-JsqcRBTd6NPbJmg8RcNrc1A0ZiP8gbCkvmyPi2yQPNd1icD4EyyNo2rAu0BixF-n4gvfnZQOEYuKsNRNfeFWafyl",
+        "video_metadata": null,
+        "tool_call": null,
+        "tool_response": null,
+        "part_metadata": null,
+        "audio_transcription": null
+      },
+      {
+        "media_resolution": null,
+        "code_execution_result": null,
+        "executable_code": null,
+        "file_data": null,
+        "function_call": {
+          "id": "call_472907",
+          "args": {
+            "query": "cables check pedalboard"
+          },
+          "name": "search_notes",
+          "partial_args": null,
+          "will_continue": null
+        },
+        "function_response": null,
+        "inline_data": null,
+        "text": null,
+        "thought": null,
+        "thought_signature": null,
+        "video_metadata": null,
+        "tool_call": null,
+        "tool_response": null,
+        "part_metadata": null,
+        "audio_transcription": null
+      }
+    ],
+    "role": "model"
+  },
+  {
+    "parts": [
+      {
+        "media_resolution": null,
+        "code_execution_result": null,
+        "executable_code": null,
+        "file_data": null,
+        "function_call": null,
+        "function_response": {
+          "will_continue": null,
+          "scheduling": null,
+          "parts": null,
+          "id": null,
+          "name": "search_notes",
+          "response": {
+            "output": "[guitar-pedalboard.md]\n# Guitar Pedalboard\n\nThe board lives in the den, next to the record shelves. Signal chain,\nin order from the guitar: tuner, compressor, overdrive, fuzz,\nmodulation (chorus), delay, reverb, then into the amp. Fuzz goes after\noverdrive and before modulation deliberately, putting fuzz any later\nin the chain makes it sound thin and buzzy instead of thick.\n\nPower comes from a single isolated-output supply, not a daisy chain,\nafter a daisy-chained delay pedal picked up an audible hum from a\ndigital pedal sharing its power line. Cables get an ohms check with a\nmultimeter every few months; a bad cable is still the most common\nreason a \"dead\" signal chain turns out to have nothing wrong with any\nof the pedals themselves.\n"
+          }
+        },
+        "inline_data": null,
+        "text": null,
+        "thought": null,
+        "thought_signature": null,
+        "video_metadata": null,
+        "tool_call": null,
+        "tool_response": null,
+        "part_metadata": null,
+        "audio_transcription": null
+      }
+    ],
+    "role": "user"
+  },
+  {
+    "parts": [
+      {
+        "media_resolution": null,
+        "code_execution_result": null,
+        "executable_code": null,
+        "file_data": null,
+        "function_call": null,
+        "function_response": null,
+        "inline_data": null,
+        "text": "The pedalboard lives in the den, next to the record shelves [guitar-pedalboard.md]. Its cables should get an ohms check with a multimeter every few months [guitar-pedalboard.md].",
+        "thought": null,
+        "thought_signature": "El4KXAERTTIPbtxe76fgT5LRWq1pGcq3bTScmzpyGj5stPLwHC2wUEMR4KYxYhWGLVCXBpkJdOnt1d2-MArJUdhLjX_wrA7LBAtGUrs_0LqrLMNFFELjTb-jI4ZTSplw",
+        "video_metadata": null,
+        "tool_call": null,
+        "tool_response": null,
+        "part_metadata": null,
+        "audio_transcription": null
+      }
+    ],
+    "role": "model"
+  }
+]

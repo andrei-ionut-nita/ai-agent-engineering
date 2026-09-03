@@ -55,10 +55,10 @@ uv run python lessons/multimodal_rag/02_intermediate/13_balancing_k_across_modal
 ## Expected output
 
 ```
-Query: "What does the closed terrarium look like when it's working correctly?"
+Query: "Describe the humidity and condensation cycle inside a properly balanced closed terrarium."
 
-Plain top-3 (unbalanced): ['terrarium.md', 'circuit-board.md', 'sourdough-starter.md'] (0 images)
-Balanced (k_text=2, k_image=1): ['terrarium.md', 'circuit-board.md', '<some image>.png'] (1 image, guaranteed)
+Plain top-3 (unbalanced): ['terrarium.md', 'sourdough-starter.md', 'home-observatory.md'] (0 images)
+Balanced (k_text=2, k_image=1): ['terrarium.md', 'sourdough-starter.md', 'starter-jar-markings.png'] (1 images, guaranteed)
 ```
 
 ## Checkpoint

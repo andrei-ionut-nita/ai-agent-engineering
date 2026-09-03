@@ -79,14 +79,16 @@ uv run python lessons/graph_rag/02_intermediate/13_persisting_the_graph/lesson.p
 First run:
 ```
 Built graph from scratch and saved it.
-Graph has 48 nodes, saved to graph.json.
+Graph has 45 nodes, saved to graph.json.
 ```
 
 Second run (delete nothing in between):
 ```
 Loaded graph from disk, no extraction needed.
-Graph has 48 nodes, saved to graph.json.
+Graph has 45 nodes, saved to graph.json.
 ```
+
+(Exact node count can shift slightly with extraction variance.)
 
 ## Checkpoint
 

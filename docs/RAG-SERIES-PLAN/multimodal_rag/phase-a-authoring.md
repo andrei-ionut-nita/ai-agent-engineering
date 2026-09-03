@@ -1,8 +1,21 @@
 # Phase A: Author the `multimodal_rag` course
 
-**Status: authored, not yet live-verified. All 26 lessons written and
-pass py_compile; live-API verification against a real `GOOGLE_API_KEY`
-deferred to a later session (today's key is quota-exhausted).**
+**Status: authored, partially verified. All 26 lessons written and pass
+py_compile. Lessons 1-17 (all of Beginner, Intermediate 10-17) verified
+live against the real Gemini API, including a confirmed-genuine Lesson 7
+cross-modal retrieval (image beat every text chunk on real embedding
+scores) and a real bug fixed in Lesson 13 (query rephrased so k-balancing
+actually has something to prove against live embeddings). Lessons 18-26
+(Intermediate 18, all of Advanced) remain unverified - blocked on the
+`EmbedContentRequestsPerDayPerUserPerProjectPerModel-FreeTier` daily
+quota (1000/day), which did not reliably reset within the same session
+despite one successful probe call, so treat any single successful check
+with caution and re-verify quota headroom before resuming. Resume at
+Lesson 18 (`02_intermediate/18_intermediate_checkpoint_project/lesson.py`)
+once quota is confirmed available; pay particular attention to Lesson 20
+(chromadb introduction - this is where the `image_path=""` vs `None`
+metadata convention starts to matter) and Lesson 25 (capstone - confirm
+cross-modal retrieval still works once on chromadb).**
 Mirrors [`../naive_rag/phase-a-authoring.md`](../naive_rag/phase-a-authoring.md)'s
 structure and conventions exactly - only the content differs.
 

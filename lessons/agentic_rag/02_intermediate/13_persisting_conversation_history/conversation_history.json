@@ -1,0 +1,107 @@
+[
+  {
+    "parts": [
+      {
+        "media_resolution": null,
+        "code_execution_result": null,
+        "executable_code": null,
+        "file_data": null,
+        "function_call": null,
+        "function_response": null,
+        "inline_data": null,
+        "text": "How often does the sourdough starter need feeding at room temperature?",
+        "thought": null,
+        "thought_signature": null,
+        "video_metadata": null,
+        "tool_call": null,
+        "tool_response": null,
+        "part_metadata": null,
+        "audio_transcription": null
+      }
+    ],
+    "role": "user"
+  },
+  {
+    "parts": [
+      {
+        "media_resolution": null,
+        "code_execution_result": null,
+        "executable_code": null,
+        "file_data": null,
+        "function_call": {
+          "id": "call_351941",
+          "args": {
+            "query": "sourdough starter room temperature feeding frequency"
+          },
+          "name": "search_notes",
+          "partial_args": null,
+          "will_continue": null
+        },
+        "function_response": null,
+        "inline_data": null,
+        "text": null,
+        "thought": null,
+        "thought_signature": "El4KXAERTTIPHXiFtY9ijZWkFujwnFXoNUTgPBydAA7jsDzZ0M7UJXlWCCigtAg16w9_Aggzs72BBQSysg13WNlyeADo2GiWyggu9zk2HrucyNTszYyYvQRU1cQw7Qeu",
+        "video_metadata": null,
+        "tool_call": null,
+        "tool_response": null,
+        "part_metadata": null,
+        "audio_transcription": null
+      }
+    ],
+    "role": "model"
+  },
+  {
+    "parts": [
+      {
+        "media_resolution": null,
+        "code_execution_result": null,
+        "executable_code": null,
+        "file_data": null,
+        "function_call": null,
+        "function_response": {
+          "will_continue": null,
+          "scheduling": null,
+          "parts": null,
+          "id": null,
+          "name": "search_notes",
+          "response": {
+            "result": "[sourdough-starter.md]\n# Sourdough Starter\n\nThe starter (nicknamed \"Clarence\") lives on the kitchen counter, next\nto the aquarium, in a half-liter glass jar with a loose-fitting lid.\nIt was started from scratch in January 2024 using just flour and\nwater, no store-bought starter culture.\n\nAt room temperature, Clarence needs feeding every 12 hours, equal\nparts flour and water by weight. If it's going in the fridge for\nlonger than a few days, once a week is enough, since the cold slows\nthe yeast down. Skipping a feeding at room temperature for more than a\nday makes the starter smell sharply of acetone, a sign it's hungry,\nnot a sign it's dead.\n\nBaking day starts the night before: pull the starter, feed it, and\nwait for it to double in size (usually 4 to 6 hours) before mixing the\ndough.\n"
+          }
+        },
+        "inline_data": null,
+        "text": null,
+        "thought": null,
+        "thought_signature": null,
+        "video_metadata": null,
+        "tool_call": null,
+        "tool_response": null,
+        "part_metadata": null,
+        "audio_transcription": null
+      }
+    ],
+    "role": "user"
+  },
+  {
+    "parts": [
+      {
+        "media_resolution": null,
+        "code_execution_result": null,
+        "executable_code": null,
+        "file_data": null,
+        "function_call": null,
+        "function_response": null,
+        "inline_data": null,
+        "text": "At room temperature, your sourdough starter needs to be fed **every 12 hours**. \n\n(If you ever put it in the fridge, once a week is usually enough because the cold slows down the yeast.)",
+        "thought": null,
+        "thought_signature": "El4KXAERTTIP8JQUIxbrsBOzOVFC1OZITe1LsEHDhy1eefLWwyh13NfgfjJGjw0vX2exTvvT06-P00pHr2tK_T0Sl1HvFj5baIxwlD32B_Pqr1v2EtUqYXuEu5NOIjir",
+        "video_metadata": null,
+        "tool_call": null,
+        "tool_response": null,
+        "part_metadata": null,
+        "audio_transcription": null
+      }
+    ],
+    "role": "model"
+  }
+]

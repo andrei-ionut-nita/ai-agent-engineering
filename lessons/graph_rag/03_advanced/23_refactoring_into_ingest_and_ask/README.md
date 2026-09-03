@@ -91,14 +91,17 @@ uv run python lessons/graph_rag/03_advanced/23_refactoring_into_ingest_and_ask/l
 ## Expected output
 
 ```
-Ingested a graph with 48 nodes.
+Ingested a graph with 47 nodes.
 
 Q: What's stored on the garage electronics bench?
-A: <a grounded answer listing items on the bench>
+A: <a grounded answer listing items on the bench, e.g. soldering station,
+   parts bin, Raspberry Pi, multimeter, jumper wires>
 
 Q: What is the capital of France?
-A: <an honest "the facts don't support that" style answer>
+A: Based on the provided facts, there is no mention of the capital of France.
 ```
+
+(Exact node count shifts slightly with extraction variance.)
 
 ## Checkpoint
 

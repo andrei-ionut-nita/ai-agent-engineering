@@ -82,6 +82,14 @@ Trying correct_ask() (replays the model's own turn first)...
   A: The turntable's belt gets replaced roughly once a year, sooner if the platter's speed sounds off.
 ```
 
+Some SDK/API combinations tolerate the missing `function_call` turn
+instead of rejecting it outright. If `broken_ask()` prints "Unexpectedly
+succeeded" instead of "Failed as expected", that's `lesson.py`'s own
+fallback branch, not a bug: treat that success as luck, not
+correctness. The API's willingness to accept a malformed history
+doesn't make replaying the model's own turn optional, `correct_ask()`
+is still the only version this lesson recommends.
+
 ## Checkpoint
 
 - A tool-calling conversation is a structured list of `Content` turns,

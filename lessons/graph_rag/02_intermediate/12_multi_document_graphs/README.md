@@ -54,17 +54,21 @@ uv run python lessons/graph_rag/02_intermediate/12_multi_document_graphs/lesson.
 ## Expected output
 
 ```
-Total nodes: 47 (after normalizing electronics/garage bench)
-Nodes mentioned in more than one document:
-  'electronics bench': {'electronics-bench.md', 'maintenance-log.md'}
-  'humidity sensor': {'greenhouse.md', 'maintenance-log.md'}
-  ...
+Total nodes: 40
 
-'humidity sensor' is a genuine cross-document bridge: traversal
-starting anywhere in greenhouse.md can reach facts that live only in
-maintenance-log.md, and vice versa, because both documents' extraction
-landed on the same node.
+Nodes mentioned in more than one document:
+  'Dev': {'electronics-bench.md', 'maintenance-log.md', 'soil-moisture-project.md', 'workshop.md', 'greenhouse.md'}
+  'garage bench': {'soil-moisture-project.md', 'book-club.md', 'workshop.md', 'electronics-bench.md', 'maintenance-log.md'}
+  'humidity sensor': {'soil-moisture-project.md', 'greenhouse.md', 'maintenance-log.md'}
+  ...
 ```
+
+Exact node counts and which specific nodes come out on top will shift
+with extraction variance, but 'humidity sensor' consistently shows up
+as a genuine cross-document bridge: traversal starting anywhere in
+greenhouse.md can reach facts that live only in maintenance-log.md, and
+vice versa, because both documents' extraction landed on the same
+node.
 
 ## Checkpoint
 

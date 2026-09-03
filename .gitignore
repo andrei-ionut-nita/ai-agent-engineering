@@ -29,3 +29,6 @@ lessons/naive_rag/02_intermediate/13_persisting_the_vector_store/store.json
 lessons/naive_rag/02_intermediate/18_intermediate_checkpoint_project/store.json
 lessons/hybrid_rag/02_intermediate/13_persisting_both_indexes/store.json
 lessons/hybrid_rag/02_intermediate/18_intermediate_checkpoint_project/store.json
+lessons/graph_rag/02_intermediate/13_persisting_the_graph/graph.json
+lessons/graph_rag/02_intermediate/18_intermediate_checkpoint_project/graph.json
+lessons/multimodal_rag/02_intermediate/12_persisting_captions_and_embeddings/store.json

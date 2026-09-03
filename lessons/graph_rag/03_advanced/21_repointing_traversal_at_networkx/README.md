@@ -88,7 +88,10 @@ uv run python lessons/graph_rag/03_advanced/21_repointing_traversal_at_networkx/
 Question: Who recalibrated the sensor that Dev flagged as drifting in the greenhouse, and what tool did they use?
 
 Answer:
-Mia recalibrated the humidity sensor that Dev flagged, and pulled a multimeter around the same time. <possibly a brief, honest hedge on the exact tool-to-task link, same pattern as earlier lessons>
+Based on the provided facts, Mia recalibrated the humidity sensor. However,
+the facts do not mention the sensor drifting in a greenhouse, nor do they
+specify what tool she used for the recalibration (though a separate fact
+mentions that she pulled a multimeter).
 ```
 
 Compare this file's line count and logic against Lesson 7's: functions

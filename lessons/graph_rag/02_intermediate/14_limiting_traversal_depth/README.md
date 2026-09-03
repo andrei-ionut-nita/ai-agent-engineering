@@ -70,18 +70,21 @@ uv run python lessons/graph_rag/02_intermediate/14_limiting_traversal_depth/less
 ## Expected output
 
 ```
-depth=1: 4 facts gathered, 1 plausibly relevant
-depth=2: 22 facts gathered, 6 plausibly relevant
-depth=3: 61 facts gathered, 7 plausibly relevant
-depth=4: 118 facts gathered, 7 plausibly relevant
+depth=1: 6 facts gathered, 6 plausibly relevant
+depth=2: 32 facts gathered, 23 plausibly relevant
+depth=3: 63 facts gathered, 42 plausibly relevant
+depth=4: 76 facts gathered, 46 plausibly relevant
 ```
 
-Exact counts vary with extraction, the shape doesn't: relevant facts
-grow slowly and then plateau, total facts keep climbing steeply. Past
-depth 3 here, almost every additional fact gathered is irrelevant
-context that generation has to wade through (or worse, gets subtly
-distracted by) to find the two or three facts that actually answer the
-question.
+Exact counts vary with extraction, the shape doesn't: total facts climb
+steeply (roughly doubling each hop, as Lesson 6 predicted), while the
+plausibly-relevant fraction of that total keeps shrinking (100% at
+depth 1, down to roughly 60% by depth 4). The loose keyword match this
+lesson uses for "relevant" is a rough proxy, not a precise one, so
+don't expect a hard plateau, expect a shrinking share: past depth 2 or
+3, an ever-larger slice of what got gathered is unrelated context that
+generation has to wade through (or worse, gets subtly distracted by) to
+find the two or three facts that actually answer the question.
 
 ## Checkpoint
 
@@ -96,9 +99,12 @@ question.
   describes and this course's own Lesson 17 will confirm.
 
 **Try this yourself:** add `"greenhouse"` and `"Priya"` to
-`RELEVANT_TERMS` is wrong on purpose, don't. Instead, look at depth 3 or
-4's actual gathered facts and find the first one that mentions Priya's
-book club. How many hops away from "humidity sensor" was that, and does
-that match what Lesson 6 predicted about combinatorial growth?
+`RELEVANT_TERMS` is wrong on purpose, don't. Instead, print depth 4's
+actual gathered facts (not just the counts) and scan for the first one
+that's clearly off-topic for a humidity-sensor question, something from
+`book-club.md`, say. If your extraction run doesn't reach that far in 4
+hops, try 5 or 6. How many hops away from "humidity sensor" was the
+first clearly-irrelevant fact, and does that match what Lesson 6
+predicted about combinatorial growth?
 
 If anything here still feels unclear, ask before moving to Lesson 15.

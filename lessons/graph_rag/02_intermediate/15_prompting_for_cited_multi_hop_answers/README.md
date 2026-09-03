@@ -74,10 +74,10 @@ uv run python lessons/graph_rag/02_intermediate/15_prompting_for_cited_multi_hop
 Question: Who recalibrated the sensor that Dev flagged as drifting in the greenhouse, and what tool did they use?
 
 Answer:
-Dev flagged the humidity sensor as drifting [greenhouse.md]. Mia
-recalibrated it [maintenance-log.md], and the facts show she also
-pulled a multimeter around the same time [maintenance-log.md], though
-that specific tool-to-task link isn't explicitly stated.
+Mia recalibrated the humidity sensor [maintenance-log.md].
+
+The provided facts do not state what tool Mia used to recalibrate the
+sensor.
 ```
 
 Exact wording varies, the citations shouldn't: each claim should point

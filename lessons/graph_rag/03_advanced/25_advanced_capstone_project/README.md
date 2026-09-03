@@ -47,7 +47,7 @@ the one addition this capstone needed: `State` grows a third field so
 
 ```python
 start = find_starting_node(query, state.collection)
-facts = gather_facts_with_sources(state.graph, state.provenance, start, max_hops=3)
+facts = gather_facts_with_sources(state.graph, state.provenance, start, max_hops=4)
 ```
 Lesson 22 (`chromadb`-backed starting-node lookup) feeding into Lesson
 15's provenance-aware traversal, now running on `networkx` (Lesson 21)
@@ -78,11 +78,17 @@ this folder, then `curl "http://127.0.0.1:8000/ask?q=..."`.
 
 ```
 GET /ask?q="Who recalibrated the sensor that Dev flagged as drifting in the greenhouse, and what tool did they use?"
-  {'answer': 'Mia recalibrated the humidity sensor that Dev flagged [greenhouse.md, maintenance-log.md]...'}
+  {'answer': 'Mia recalibrated the humidity sensor [greenhouse.md, maintenance-log.md]. The provided facts do not state what tool Mia used to recalibrate the sensor.'}
 
 GET /ask?q='What is the capital of France?'
-  {'answer': "I don't have any information relevant to that question."}
+  {'answer': 'Based on the provided facts, there is no information regarding the capital of France.'}
 ```
+
+Note: `chromadb`'s embedding match for this question lands on
+"greenhouse," a few hops further from the eventual answer than a
+hand-picked start like "humidity sensor" would be (the same thing
+Lesson 22 saw). `ask()` uses a slightly larger hop budget (4) than
+earlier lessons for exactly that reason.
 
 ## Documented limitations
 

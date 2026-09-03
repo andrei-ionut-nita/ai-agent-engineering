@@ -126,16 +126,32 @@ def main() -> None:
     graph = build_graph(NOTES_DIR)
     print(f"Nodes before normalizing: {len(graph)}")
 
+    # Track where each dropped name ends up, so a name that was itself
+    # later merged elsewhere (e.g. "electronics bench" gets merged into
+    # "garage bench", and separately "bench" gets merged into
+    # "electronics bench") can still be resolved to whichever node
+    # actually survives in the final graph.
+    alias: dict[str, str] = {}
+
+    def resolve(name: str) -> str:
+        while name in alias:
+            name = alias[name]
+        return name
+
     candidates = find_merge_candidates(graph)
     for name_a, name_b, score in candidates:
         # Keep the shorter, more general name.
         keep, drop = (name_a, name_b) if len(name_a) <= len(name_b) else (name_b, name_a)
+        keep, drop = resolve(keep), resolve(drop)
+        if keep == drop:
+            continue
         print(f"Merging: '{drop}' -> '{keep}' (similarity {score:.2f})")
         merge_nodes(graph, keep, drop)
+        alias[drop] = keep
 
     print(f"Nodes after normalizing: {len(graph)}\n")
 
-    target = "electronics bench"
+    target = resolve("electronics bench")
     print(f"Edges on '{target}' after normalizing:")
     for relation, other in graph.get(target, []):
         print(f"  {relation} -> {other}")

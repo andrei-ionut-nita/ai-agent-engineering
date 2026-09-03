@@ -138,11 +138,20 @@ like [greenhouse.md]. If a specific detail genuinely isn't supported by
 any fact, say so plainly instead of guessing, and don't invent a
 citation for it.
 
+Before answering, scan the entire fact list line by line, it is short
+enough to check exhaustively. Only cite a source next to a claim it
+actually supports, don't attach every source in the list to a claim
+you couldn't find support for.
+
 Facts:
 {context}
 
 Question: {query}"""
-    response = client.models.generate_content(model=CHAT_MODEL, contents=prompt)
+    response = client.models.generate_content(
+        model=CHAT_MODEL,
+        contents=prompt,
+        config=types.GenerateContentConfig(temperature=0),
+    )
     return response.text or ""
 
 
@@ -174,7 +183,13 @@ def ask(query: str, state: State, k: int = 2) -> str:
         return "I don't have any information relevant to that question."
     start = ids[0][0]
 
-    facts = gather_facts_with_sources(state.graph, state.provenance, start, max_hops=3)
+    # chromadb's embedding match for the question isn't guaranteed to
+    # land on one of the graph's centrally-connected nodes (Lesson 22
+    # saw this exact question start from "greenhouse," a few hops
+    # further from the eventual answer than a hand-picked start like
+    # "humidity sensor" would be). A slightly larger hop budget than
+    # earlier lessons used compensates for that extra distance.
+    facts = gather_facts_with_sources(state.graph, state.provenance, start, max_hops=4)
     return generate_cited_answer(query, facts)
 
 

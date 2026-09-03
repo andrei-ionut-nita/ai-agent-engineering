@@ -114,7 +114,7 @@ def retrieve_balanced(query: str, store: list[dict], k_text: int, k_image: int) 
 
 def main() -> None:
     store = build_mixed_store()
-    query = "What does the closed terrarium look like when it's working correctly?"
+    query = "Describe the humidity and condensation cycle inside a properly balanced closed terrarium."
 
     plain = retrieve(query, store, k=3)
     plain_sources = [r["source"] for r in plain]

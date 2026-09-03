@@ -127,16 +127,24 @@ def generate_answer(query: str, facts: list[str]) -> str:
 traversing a knowledge graph, not a single passage of prose. The facts
 are short (subject, relation, object) statements, listed in the order
 traversal found them; facts about the same entity that appear near each
-other usually describe the same underlying event. Combine them into a
-single coherent answer using only what the facts support. If a specific
-detail genuinely isn't supported by any fact, say so plainly instead of
-guessing.
+other usually describe the same underlying event.
+
+Before answering, scan the ENTIRE list below line by line, it is short
+enough to check exhaustively. Combine every fact that bears on the
+question into a single coherent answer. Only say a detail "isn't
+supported" after you have actually checked every fact and confirmed
+none of them mention it, don't say a detail is missing if it appears
+literally in the list.
 
 Facts:
 {context}
 
 Question: {query}"""
-    response = client.models.generate_content(model=CHAT_MODEL, contents=prompt)
+    response = client.models.generate_content(
+        model=CHAT_MODEL,
+        contents=prompt,
+        config=types.GenerateContentConfig(temperature=0),
+    )
     return response.text or ""
 
 

@@ -144,11 +144,10 @@ def load_graph(path: Path) -> tuple[Graph, Provenance]:
     return graph, provenance
 
 
-def find_starting_node(query: str, graph: Graph) -> str:
+def find_starting_node(query: str, graph: Graph, node_vectors: dict[str, list[float]]) -> str:
     node_names = list(graph.keys())
-    node_vectors = embed_texts(node_names)
     query_vector = embed_texts([query])[0]
-    scores = [cosine_similarity(query_vector, v) for v in node_vectors]
+    scores = [cosine_similarity(query_vector, node_vectors[name]) for name in node_names]
     best_index = max(range(len(node_names)), key=lambda i: scores[i])
     return node_names[best_index]
 
@@ -190,12 +189,18 @@ Facts:
 {context}
 
 Question: {query}"""
-    response = client.models.generate_content(model=CHAT_MODEL, contents=prompt)
+    response = client.models.generate_content(
+        model=CHAT_MODEL,
+        contents=prompt,
+        config=types.GenerateContentConfig(temperature=0),
+    )
     return response.text or ""
 
 
-def ask(query: str, graph: Graph, provenance: Provenance) -> str:
-    start = find_starting_node(query, graph)
+def ask(
+    query: str, graph: Graph, provenance: Provenance, node_vectors: dict[str, list[float]]
+) -> str:
+    start = find_starting_node(query, graph, node_vectors)
     facts = gather_facts_with_sources(graph, provenance, start, max_hops=MAX_HOPS)
     return generate_cited_answer(query, facts)
 
@@ -210,6 +215,10 @@ def main() -> None:
         save_graph(graph, provenance, GRAPH_PATH)
         print("Built graph from scratch, normalized it, and saved it.\n")
 
+    node_names = list(graph.keys())
+    node_vector_list = embed_texts(node_names)
+    node_vectors = dict(zip(node_names, node_vector_list))
+
     questions = [
         "Who recalibrated the sensor that Dev flagged as drifting in the greenhouse, and what tool did they use?",
         "What earlier project inspired Dev's soil moisture sensor build?",
@@ -218,7 +227,7 @@ def main() -> None:
 
     for query in questions:
         print(f"Q: {query}")
-        print(f"A: {ask(query, graph, provenance)}\n")
+        print(f"A: {ask(query, graph, provenance, node_vectors)}\n")
 
 
 if __name__ == "__main__":

@@ -1,8 +1,6 @@
 # Phase A: Author the `agentic_rag` course
 
-**Status: authored, not yet live-verified.** All 26 lessons written and
-pass py_compile; live-API verification against a real GOOGLE_API_KEY
-deferred to a later session (today's key is quota-exhausted). Mirrors
+**Status: complete. All 26 lessons authored and verified against the real Gemini API.** Mirrors
 [`../naive_rag/phase-a-authoring.md`](../naive_rag/phase-a-authoring.md)'s
 structure and conventions exactly - only the content differs.
 
@@ -57,7 +55,7 @@ call instead. Scope it to avoid re-teaching general agent concepts
       part of `google-genai`, already in `pyproject.toml`) - confirm this
       holds once lessons are drafted
 - [x] Add the `agentic_rag` course bullet to the repo root `README.md`
-- [ ] Spot-check every lesson's `lesson.py` actually runs against a real
+- [x] Spot-check every lesson's `lesson.py` actually runs against a real
       `GOOGLE_API_KEY` and matches its README's "Expected output"
 
 ## Course 5 Spec: Agentic RAG

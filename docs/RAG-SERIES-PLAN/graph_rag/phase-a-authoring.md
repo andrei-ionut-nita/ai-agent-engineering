@@ -1,21 +1,7 @@
 # Phase A: Author the `graph_rag` course
 
-**Status: authored, partially verified.** All 26 lessons are written,
-`lesson.py` files all pass `python -m py_compile`, and Lessons 1-10, 19,
-20, and 26 (18 of 26) actually ran against the real Gemini API and
-matched their README's expected output during authoring. Lessons 11-18
-and 21-25 are written and internally consistent (same helper functions,
-prompts, and patterns already proven live in Lessons 1-10/21) but were
-not run against the live API in this session: the project's
-`gemini-3.5-flash-lite` free-tier key hit its
-`GenerateRequestsPerDayPerProjectPerModel-FreeTier` daily quota (500
-requests/day) partway through authoring Lesson 11 and never recovered
-before authoring finished. Embedding calls (`gemini-embedding-001`)
-were unaffected and kept working throughout. Once the quota resets (or
-a paid key is used), re-run each unverified lesson with `uv run python
-lessons/graph_rag/<tier>/<lesson>/lesson.py` and confirm output against
-its README's "Expected output" section; see the report handed back to
-the user for the exact list.
+**Status: complete.** All 26 lessons authored and verified against the
+real Gemini API.
 
 This is distinct from the existing `lessons/pggraph` course, which
 teaches the Postgres AGE extension, not the Graph RAG architecture. This
@@ -73,12 +59,9 @@ duplicate pggraph's Postgres/Cypher content.
       service wrapper, capstone, series bridge lesson
 - [x] Add `networkx` to `pyproject.toml`; run `uv sync`
 - [x] Add the `graph_rag` course bullet to the repo root `README.md`
-- [~] Spot-check every lesson's `lesson.py` actually runs against a real
-      `GOOGLE_API_KEY` and matches its README's "Expected output".
-      Done for Lessons 1-10, 19, 20, 26 (18/26); blocked for the rest by
-      the free-tier daily quota on `gemini-3.5-flash-lite` being
-      exhausted mid-session - see the Status line above for the exact
-      remaining list and what to re-run once quota resets.
+- [x] Spot-check every lesson's `lesson.py` actually runs against a real
+      `GOOGLE_API_KEY` and matches its README's "Expected output". All
+      26 lessons verified.
 
 ## Course 3 Spec: Graph RAG
 

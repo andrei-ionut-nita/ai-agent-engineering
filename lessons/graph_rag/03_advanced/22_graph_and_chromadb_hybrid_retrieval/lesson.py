@@ -141,11 +141,20 @@ single coherent answer using only what the facts support. If a specific
 detail genuinely isn't supported by any fact, say so plainly instead of
 guessing.
 
+Before answering, scan the entire list above line by line, it is short
+enough to check exhaustively. Only say a detail "isn't supported" after
+you've actually checked every fact and confirmed none of them mention
+it.
+
 Facts:
 {context}
 
 Question: {query}"""
-    response = client.models.generate_content(model=CHAT_MODEL, contents=prompt)
+    response = client.models.generate_content(
+        model=CHAT_MODEL,
+        contents=prompt,
+        config=types.GenerateContentConfig(temperature=0),
+    )
     return response.text or ""
 
 
@@ -159,7 +168,15 @@ def main() -> None:
     start = find_starting_node(QUESTION, collection)
     print(f"Starting node (via chromadb query): {start!r}\n")
 
-    facts = gather_facts(graph, start, max_hops=3)
+    # chromadb picks the starting node by embedding similarity to the
+    # question, which isn't guaranteed to be exactly one of the graph's
+    # centrally-connected nodes (here, the question mentions
+    # "greenhouse," which can end up a few hops further from the
+    # eventual answer than a hand-picked start like "humidity sensor"
+    # would be). A slightly larger hop budget than Lesson 21 used
+    # compensates for that extra distance without needing unbounded
+    # traversal.
+    facts = gather_facts(graph, start, max_hops=4)
     answer = generate_answer(QUESTION, facts)
     print(f"Answer:\n{answer}")
 

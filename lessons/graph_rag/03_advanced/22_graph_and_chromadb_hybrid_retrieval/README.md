@@ -57,7 +57,7 @@ for chunk retrieval.
 
 ```python
 start = find_starting_node(query, collection)
-facts = gather_facts(graph, start, max_hops=2)  # Lesson 21's networkx traversal, unchanged
+facts = gather_facts(graph, start, max_hops=4)  # Lesson 21's networkx traversal, unchanged
 ```
 
 The hybrid step itself: a `chromadb` query hands off to a `networkx`
@@ -78,8 +78,21 @@ Question: Who recalibrated the sensor that Dev flagged as drifting in the greenh
 Starting node (via chromadb query): 'greenhouse'
 
 Answer:
-Mia recalibrated the humidity sensor that Dev flagged. <possibly a brief, honest hedge, same pattern as earlier lessons>
+...the facts show that Mia recalibrated a humidity sensor..., while Dev
+posted about a humidity sensor. The tools associated with Mia include a
+multimeter (which Mia pulled), but the facts do not explicitly connect
+a specific tool directly to the act of recalibration.
 ```
+
+`chromadb`'s embedding match for "greenhouse" can land a few hops
+further from the eventual answer than a hand-picked start like
+"humidity sensor" would (Lesson 21 started there directly), since real
+similarity search finds the best-matching *entity*, not necessarily the
+most central one for a given question's answer. This lesson uses a
+slightly larger hop budget (4, not Lesson 21's 2) for exactly that
+reason, and the answer may still hedge on details, like which tool was
+used for the recalibration specifically, that require more hops than
+even that to pin down precisely.
 
 ## Checkpoint
 
