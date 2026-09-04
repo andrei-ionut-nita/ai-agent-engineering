@@ -105,6 +105,13 @@ Eighteen courses, meant to be done in order:
   with Gemini's native image-input support, then re-attaching the
   original image at generation time, before graduating to `chromadb`
   and a small FastAPI service.
+- **[lessons/adaptive_rag](lessons/adaptive_rag/)** (26 lessons): course
+  7, the closing course in the RAG-architecture series, classifying each
+  question's complexity and routing it to the right strategy instead of
+  running every question through the same fixed pipeline, before wiring
+  in the real naive, hybrid, graph, corrective, and agentic
+  implementations from courses 1-5 behind one router and a small
+  FastAPI service.
 
 ## Quick start
 

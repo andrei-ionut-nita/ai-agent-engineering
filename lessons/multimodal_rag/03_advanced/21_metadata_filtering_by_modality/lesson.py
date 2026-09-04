@@ -94,7 +94,7 @@ def query_collection(
 def main() -> None:
     collection = build_collection()
 
-    query = "What does the setup look like?"
+    query = "Describe the overall home observatory setup."
     query_vector = embed_texts([query])[0]
 
     unfiltered = query_collection(collection, query_vector, n_results=1)

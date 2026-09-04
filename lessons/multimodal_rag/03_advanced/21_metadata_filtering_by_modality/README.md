@@ -48,10 +48,10 @@ uv run python lessons/multimodal_rag/03_advanced/21_metadata_filtering_by_modali
 ## Expected output
 
 ```
-Query: "What does the setup look like?"
+Query: "Describe the overall home observatory setup."
 
 Unfiltered top match: home-observatory.md (modality=text)
-Filtered to modality='image': observatory-finder-scope.png (modality=image)
+Filtered to modality='image': observatory-mount-wiring.png (modality=image)
 ```
 
 ## Checkpoint

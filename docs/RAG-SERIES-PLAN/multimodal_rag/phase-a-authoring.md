@@ -1,21 +1,28 @@
 # Phase A: Author the `multimodal_rag` course
 
-**Status: authored, partially verified. All 26 lessons written and pass
-py_compile. Lessons 1-17 (all of Beginner, Intermediate 10-17) verified
-live against the real Gemini API, including a confirmed-genuine Lesson 7
-cross-modal retrieval (image beat every text chunk on real embedding
-scores) and a real bug fixed in Lesson 13 (query rephrased so k-balancing
-actually has something to prove against live embeddings). Lessons 18-26
-(Intermediate 18, all of Advanced) remain unverified - blocked on the
-`EmbedContentRequestsPerDayPerUserPerProjectPerModel-FreeTier` daily
-quota (1000/day), which did not reliably reset within the same session
-despite one successful probe call, so treat any single successful check
-with caution and re-verify quota headroom before resuming. Resume at
-Lesson 18 (`02_intermediate/18_intermediate_checkpoint_project/lesson.py`)
-once quota is confirmed available; pay particular attention to Lesson 20
-(chromadb introduction - this is where the `image_path=""` vs `None`
-metadata convention starts to matter) and Lesson 25 (capstone - confirm
-cross-modal retrieval still works once on chromadb).**
+**Status: complete. All 26 lessons authored and verified against the real
+Gemini API.** Lesson 7's cross-modal retrieval is confirmed genuine on
+both the plain-dict store (Beginner) and the chromadb-backed store
+(Lesson 20 onward): the fixture image consistently beat every text chunk
+on real embedding scores, never staged. Two real bugs were found and
+fixed during live verification, both cases where a fixture query no
+longer demonstrated its point against live (non-deterministic) Gemini
+embeddings: Lesson 13 (k-balancing) and Lesson 21 (modality filtering)
+each had their query rephrased so the "unbalanced/unfiltered" case
+genuinely shows the failure mode the balanced/filtered case then fixes,
+confirmed with real embedding score diagnostics before picking the new
+wording. The `image_path=""` vs `None` chromadb metadata convention
+(Lessons 20-25) was checked at every place that decides whether to
+re-attach an image at generation time; all of them correctly use
+truthiness checks (`if metadata["image_path"]:`), never `is None`,
+which would have silently broken image re-attachment for every image
+record once chromadb was introduced. A few READMEs' "Expected output"
+blocks had a literal fallback string (`"I don't have any information
+relevant to that question."`) that can never actually appear, since
+chromadb's `n_results=k` always returns k documents for a non-empty
+collection, so the code's early-return branch for empty results is
+unreachable; those were reworded to describe the real (LLM-generated,
+still-honest) refusal instead of quoting an unreachable literal.
 Mirrors [`../naive_rag/phase-a-authoring.md`](../naive_rag/phase-a-authoring.md)'s
 structure and conventions exactly - only the content differs.
 
@@ -72,10 +79,9 @@ structure and conventions exactly - only the content differs.
       (Pillow was already present at `pillow>=12.3.0`; `uv sync`
       confirmed green)
 - [x] Add the `multimodal_rag` course bullet to the repo root `README.md`
-- [ ] Spot-check every lesson's `lesson.py` actually runs against a real
-      `GOOGLE_API_KEY` and matches its README's "Expected output"
-      (deferred: today's `GOOGLE_API_KEY` is quota-exhausted, see status
-      line above)
+- [x] Spot-check every lesson's `lesson.py` actually runs against a real
+      `GOOGLE_API_KEY` and matches its README's "Expected output" (all
+      26 lessons verified live, see status line above)
 
 ## Course 6 Spec: Multimodal RAG
 

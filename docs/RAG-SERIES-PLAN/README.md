@@ -24,8 +24,9 @@ phase (Phase A: author in this repo, Phase B: publish to the portfolio):
   started**.
 - [`adaptive_rag/`](./adaptive_rag/) - Course 7, Adaptive RAG (series
   closer - depends on courses 2-5 being authored first).
-  [Phase A](./adaptive_rag/phase-a-authoring.md) **planned, not
-  started**.
+  [Phase A](./adaptive_rag/phase-a-authoring.md) **complete**;
+  [Phase B](./adaptive_rag/phase-b-publishing.md) **not started**,
+  awaiting user go-ahead.
 
 Every course's Phase A syllabus needs the user's explicit approval before
 any lesson files get written - draft status here means "syllabus exists,"
@@ -106,7 +107,7 @@ in the blog's complexity order:
 | 4 | `corrective_rag` | `corrective-rag` | Corrective RAG (CRAG) | **Authored (Phase A done), not yet published** |
 | 5 | `agentic_rag` | `agentic-rag` | Agentic RAG | **Plan drafted, syllabus not yet approved** |
 | 6 | `multimodal_rag` | `multimodal-rag` | Multimodal RAG | **Plan drafted, syllabus not yet approved** |
-| 7 | `adaptive_rag` | `adaptive-rag` | Adaptive RAG | **Plan drafted (series closer - do not author until courses 2-5 are done)** |
+| 7 | `adaptive_rag` | `adaptive-rag` | Adaptive RAG | **Authored (Phase A done), not yet published** |
 
 This table is the one to keep updated as each course ships (see
 "Persisting This Plan for Future Courses" below).

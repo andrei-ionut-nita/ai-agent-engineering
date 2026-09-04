@@ -74,9 +74,9 @@ GET /ask?q="What's the torque spec for the derailleur hanger bolt?"
   {'answer': '<a grounded answer mentioning 8 Nm>', 'source_image': 'derailleur-hanger-diagram.png'}
 
 GET /ask?q='What is the capital of France?'
-  {'answer': "I don't have any information relevant to that question.", 'source_image': None}
+  {'answer': '<an honest admission the retrieved context doesn't answer this>', 'source_image': None}
 
-GET /image/derailleur-hanger-diagram.png -> 200, image/png bytes
+GET /image/derailleur-hanger-diagram.png -> 200, image/png, <N> bytes
 ```
 
 ## Checkpoint

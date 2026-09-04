@@ -75,7 +75,7 @@ Q: What's the torque spec for the derailleur hanger bolt?
 A: <a grounded answer citing the image, mentioning 8 Nm>
 
 Q: What is the capital of France?
-A: I don't have any information relevant to that question.
+A: <an honest admission the retrieved context doesn't answer this, not a guess>
 ```
 
 ## Checkpoint
