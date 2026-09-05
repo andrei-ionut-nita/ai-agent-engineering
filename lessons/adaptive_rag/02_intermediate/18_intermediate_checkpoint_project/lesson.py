@@ -36,7 +36,7 @@ LABELS = ["simple_factual", "multi_hop", "ambiguous"]
 
 # Lesson 11's threshold: read off Lesson 10's own two observed
 # confidence values, not tuned against Lesson 17's evaluation set.
-CONFIDENCE_THRESHOLD = 0.92
+CONFIDENCE_THRESHOLD = 0.8
 
 CLASSIFY_PROMPT = """You are routing questions to a retrieval strategy \
 over a small personal notes collection (documents about a weather \
@@ -263,7 +263,7 @@ def main() -> None:
 
     questions = [
         "What oven setting does the pizza dough recipe use?",
-        "What two hobbies happen in the same room as the weather station?",
+        "Where does the basil on the pizza come from?",
         "How does wind speed affect things around the house?",
     ]
 

@@ -13,9 +13,10 @@ before continuing to Advanced.
 
 Loads (or builds and persists) an embedding index over every fixture
 note, then answers three questions, one simple, one multi-hop, one
-ambiguous, each routed automatically. Every answer discloses, in its own
-text, which strategy handled it and why, and every routing decision is
-logged to a local file for later inspection.
+ambiguous, each routed automatically to a different one of the three
+strategies. Every answer discloses, in its own text, which strategy
+handled it and why, and every routing decision is logged to a local
+file for later inspection.
 
 ## Where each piece came from
 
@@ -33,9 +34,13 @@ def route(label: str, confidence: float, question: str, store: list[dict]) -> tu
         return "multi_hop (fallback)", retrieve(question, store, k=2)
     ...
 ```
-Lesson 11: below `CONFIDENCE_THRESHOLD` (read off Lesson 10's own
-examples, not tuned against Lesson 17's evaluation set), the label is
-set aside and retrieval falls back to the wider strategy.
+Lesson 11: below `CONFIDENCE_THRESHOLD` (`0.8`, read off Lesson 10's
+own examples, not tuned against Lesson 17's evaluation set), the label
+is set aside and retrieval falls back to the wider strategy. None of
+this checkpoint's three demo questions actually trigger the fallback,
+each classifies confidently enough to route on its own label, the
+fallback path itself was already demonstrated in isolation back in
+Lesson 11.
 
 ```python
 if label == "ambiguous":
@@ -84,9 +89,10 @@ uv run python lessons/adaptive_rag/02_intermediate/18_intermediate_checkpoint_pr
 ```
 
 You should see: the pizza question answered by the naive route, the
-same-room question answered by the multi-hop route, and the wind speed
-question answered by the corrective route, each answer's final line
-naming its own strategy and reason, followed by the matching entries in
+basil question ("Where does the basil on the pizza come from?")
+answered by the multi-hop route, and the wind speed question answered
+by the corrective route, each answer's final line naming its own
+strategy and reason, followed by the matching entries in
 `routing_log.jsonl`.
 
 ## Try this yourself
